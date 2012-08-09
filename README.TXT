@@ -1,13 +1,39 @@
-# CONSTANT CONTACT - UPLOAD Email Campaign FORM - ASP Application #
+# CONSTANT CONTACT - .NET Wrapper #
 
 
 1. ABOUT THIS PACKAGE
 
-This is an ASP sample application that allows you to:
-	- add a new Email Campaign
-	- edit an existing Email Campaign
-	- list all existing Email Campaigns
-	- remove an existing Email Campaigns from all lists
+This is a .NET wrapper which assists in the following:
+	Contact Management
+	-Create
+	-Update
+	-Unsubscribe
+	-Search
+	-List All
+	Contact List Management
+	-Create
+	-Delete
+	-Retrieve Members
+	-List All
+	Email Campaign Management
+	-Create
+	-Update
+	-Remove
+	-Search
+	-List All
+	Activities 
+	-Export Contacts
+	-Bulk Upload from File
+	-Get Activities
+	-Get Activity Details
+	Library Management
+	-Create Folders
+	-Get Image
+	-Get Image Details
+	-Delete
+	-List All
+	
+*Refer to Utility.cs for a complete list.
 
 
 2. WHAT THIS PACKAGE CONTAINS 
