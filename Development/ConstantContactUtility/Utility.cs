@@ -1430,6 +1430,38 @@ namespace ConstantContactUtility
         }
         #endregion
 
+        #region Activities - Clear Contacts from Lists
+        /// <summary>
+        /// Removes all contacts from selected lists
+        /// </summary>
+        /// <param name="authdata">Authentication Data</param>
+        /// <param name="listIds">ID(s) of target lists to upload to</param>
+        /// <returns>Calls urlEncodedPost, which then returns response from server (string)</returns>
+        public static string clearContacts(AuthenticationData authdata, IList<string> listIds)
+        {
+            if (listIds.Count == 0)
+            {
+                throw new ArgumentException("No target list ID(s) Specified.", "listIds");
+            }
+            //SV_ADD is add contact, REMOVE_CONTACTS_FROM_LISTS self explanatory. CLEAR_CONTACTS_FROM_LISTS 
+            //sent with no data will clear the list.
+            int i = 0;
+            string JoinedURIs = "";
+            for (i = 0; i < listIds.Count; i++)
+            {
+                JoinedURIs = JoinedURIs + "&lists=" + authdata.AccountContactListsUri + "/" + listIds[i];
+            }
+            string fullrequest = "activityType=CLEAR_CONTACTS_FROM_LISTS" + JoinedURIs;
+            try
+            {
+                return Utility.urlEncodedPost(authdata, authdata.accountActivitiesUri, fullrequest);
+            }
+            catch (Exception e)
+            {
+                throw new ConstantException(e.Message, e);
+            }
+        }
+        #endregion
 
         #region Library - Get All Folders
         /// <summary>

@@ -26,6 +26,7 @@ This is a .NET wrapper which assists in the following:
 	-Bulk Upload from File
 	-Get Activities
 	-Get Activity Details
+	-Clear Contacts
 	Library Management
 	-Create Folders
 	-Get Image
