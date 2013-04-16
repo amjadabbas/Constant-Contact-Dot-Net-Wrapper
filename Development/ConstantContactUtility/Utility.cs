@@ -453,7 +453,6 @@ namespace ConstantContactUtility
         private static void DeleteInformation(AuthenticationData authenticationData, Uri address)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(address);
-            //request.Credentials = CreateCredentialCache(address, authenticationData);
             SetCredentials(authenticationData, ref request);
 
             request.Method = "DELETE";
@@ -960,7 +959,6 @@ namespace ConstantContactUtility
             try
             {
                 // post the Atom entry at specified Uri and save the response stream
-                Console.WriteLine(data.ToString());
                 stream = PostInformation(authenticationData, new Uri(authenticationData.AccountEmailCampaignsListUri),
                                          data.ToString());
 
@@ -1060,7 +1058,6 @@ namespace ConstantContactUtility
             string completeUri = String.Format(CultureInfo.InvariantCulture, "{0}/{1}", authenticationData.AccountEmailCampaignsListUri, id);
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(completeUri);
-            //request.Credentials = CreateCredentialCache(new Uri(completeUri), authenticationData);
             SetCredentials(authenticationData, ref request);
 
             request.Method = "DELETE";
@@ -1868,7 +1865,6 @@ namespace ConstantContactUtility
             Uri address, string requestMethod, string contentType, byte[] data)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(address);
-            //request.Credentials = CreateCredentialCache(address, authenticationData);
             SetCredentials(authenticationData, ref request);
 
             request.Method = requestMethod;
@@ -1948,7 +1944,6 @@ namespace ConstantContactUtility
         private static Stream GetResponseStream(Uri address, AuthenticationData authenticationData)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(address);
-            //request.Credentials = CreateCredentialCache(address, authenticationData);
             SetCredentials(authenticationData, ref request);
             request.Method = WebRequestMethods.Http.Get;
 
@@ -2130,7 +2125,7 @@ namespace ConstantContactUtility
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URI);
             // Add Request Header
             request.Accept = "application/atom+xml";
-            request.Timeout = 150000;
+            request.Timeout = 100000;
             // set the credentials.
             SetCredentials(Authdata, ref request);
             // Get the response.

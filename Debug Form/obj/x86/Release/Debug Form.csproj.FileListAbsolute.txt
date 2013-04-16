@@ -51,3 +51,19 @@ C:\Users\swallace\Desktop\NET updated example\Debug Form\bin\Release\ConstantCon
 C:\Users\swallace\Desktop\NET updated example\Debug Form\bin\Release\ConstantContactUtility.pdb
 C:\Users\swallace\Desktop\NET updated example\Debug Form\bin\Release\ConstantContactUtility.xml
 C:\Users\swallace\Desktop\NET updated example\Debug Form\obj\x86\Release\Debug Form.pdb
+C:\Constant-Contact-Dot-Net-Wrapper\Debug Form\bin\Release\Debug Form.exe.config
+C:\Constant-Contact-Dot-Net-Wrapper\Debug Form\obj\x86\Release\Debug Form.exe
+C:\Constant-Contact-Dot-Net-Wrapper\Debug Form\obj\x86\Release\Debug Form.pdb
+C:\Constant-Contact-Dot-Net-Wrapper\Debug Form\bin\Release\Debug Form.exe
+C:\Constant-Contact-Dot-Net-Wrapper\Debug Form\bin\Release\Debug Form.pdb
+C:\Constant-Contact-Dot-Net-Wrapper\Debug Form\bin\Release\ConstantContactBO.dll
+C:\Constant-Contact-Dot-Net-Wrapper\Debug Form\bin\Release\ConstantContactUtility.dll
+C:\Constant-Contact-Dot-Net-Wrapper\Debug Form\bin\Release\ConstantContactBO.pdb
+C:\Constant-Contact-Dot-Net-Wrapper\Debug Form\bin\Release\ConstantContactBO.xml
+C:\Constant-Contact-Dot-Net-Wrapper\Debug Form\bin\Release\ConstantContactUtility.pdb
+C:\Constant-Contact-Dot-Net-Wrapper\Debug Form\bin\Release\ConstantContactUtility.xml
+C:\Constant-Contact-Dot-Net-Wrapper\Debug Form\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Constant-Contact-Dot-Net-Wrapper\Debug Form\obj\x86\Release\Debug_Form.Form1.resources
+C:\Constant-Contact-Dot-Net-Wrapper\Debug Form\obj\x86\Release\Debug_Form.Properties.Resources.resources
+C:\Constant-Contact-Dot-Net-Wrapper\Debug Form\obj\x86\Release\ResGen.read.1.tlog
+C:\Constant-Contact-Dot-Net-Wrapper\Debug Form\obj\x86\Release\ResGen.write.1.tlog

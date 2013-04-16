@@ -28,3 +28,9 @@ C:\Users\swallace\Desktop\NET updated example\Development\ConstantContactUtility
 C:\Users\swallace\Desktop\NET updated example\Development\ConstantContactUtility\obj\Release\ConstantContactUtility.dll
 C:\Users\swallace\Desktop\NET updated example\Development\ConstantContactUtility\obj\Release\ConstantContactUtility.pdb
 C:\Users\swallace\Desktop\NET updated example\output\Release\ConstantContactUtility.XML
+C:\Constant-Contact-Dot-Net-Wrapper\output\Release\ConstantContactUtility.XML
+C:\Constant-Contact-Dot-Net-Wrapper\output\Release\ConstantContactUtility.dll
+C:\Constant-Contact-Dot-Net-Wrapper\output\Release\ConstantContactUtility.pdb
+C:\Constant-Contact-Dot-Net-Wrapper\Development\ConstantContactUtility\obj\Release\ResolveAssemblyReference.cache
+C:\Constant-Contact-Dot-Net-Wrapper\Development\ConstantContactUtility\obj\Release\ConstantContactUtility.dll
+C:\Constant-Contact-Dot-Net-Wrapper\Development\ConstantContactUtility\obj\Release\ConstantContactUtility.pdb

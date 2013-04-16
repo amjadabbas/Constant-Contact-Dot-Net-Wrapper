@@ -14,3 +14,8 @@ C:\Users\swallace\Desktop\NET updated example\output\Release\ConstantContactBO.p
 C:\Users\swallace\Desktop\NET updated example\Development\ConstantContactBO\obj\Release\ResolveAssemblyReference.cache
 C:\Users\swallace\Desktop\NET updated example\Development\ConstantContactBO\obj\Release\ConstantContactBO.dll
 C:\Users\swallace\Desktop\NET updated example\Development\ConstantContactBO\obj\Release\ConstantContactBO.pdb
+C:\Constant-Contact-Dot-Net-Wrapper\output\Release\ConstantContactBO.dll
+C:\Constant-Contact-Dot-Net-Wrapper\output\Release\ConstantContactBO.pdb
+C:\Constant-Contact-Dot-Net-Wrapper\Development\ConstantContactBO\obj\Release\ResolveAssemblyReference.cache
+C:\Constant-Contact-Dot-Net-Wrapper\Development\ConstantContactBO\obj\Release\ConstantContactBO.dll
+C:\Constant-Contact-Dot-Net-Wrapper\Development\ConstantContactBO\obj\Release\ConstantContactBO.pdb
