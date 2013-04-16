@@ -489,7 +489,7 @@ namespace ConstantContactUtility.Components
                 data.AppendFormat("<EmailContentFormat>{0}</EmailContentFormat>", emailCampaign.EmailContentFormat);
                 data.AppendFormat("<EmailContent>{0}</EmailContent>", emailCampaign.EmailContentFormat.Equals("HTML") ? emailCampaign.Content : emailCampaign.XContent);
                 data.AppendFormat("<EmailTextContent>{0}</EmailTextContent>", emailCampaign.TextContent);
-                //data.AppendFormat("<StyleSheet>{0}</StyleSheet>", emailCampaign.StyleSheet);
+                data.AppendFormat("<StyleSheet>{0}</StyleSheet>", emailCampaign.StyleSheet);
             }
             data.Append("<ContactLists>");
             if (emailCampaign.ContactLists.Count > 0)
@@ -758,7 +758,7 @@ namespace ConstantContactUtility.Components
                                 break;
 
                             case EmailCampaignXmlNodeStyleSheet:
-                                //emailCampaign.StyleSheet = currentNode.Value;
+                                emailCampaign.StyleSheet = currentNode.Value;
                                 break;
                         }
 

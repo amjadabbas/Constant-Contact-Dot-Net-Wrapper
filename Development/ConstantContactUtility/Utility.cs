@@ -227,7 +227,6 @@ namespace ConstantContactUtility
             Stream stream = Stream.Null;
             try
             {
-                //stream = GetResponseStream(new Uri(completeUri), authenticationData);
                 String response = httpGet(authenticationData, completeUri);
                 stream = new MemoryStream(Encoding.UTF8.GetBytes(response));
                 // parse the stream and obtain a Contact object
