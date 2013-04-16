@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,10 +23,15 @@ namespace Debug_Form
         private void button1_Click(object sender, EventArgs e)
         {
             //DEBUG TESTING
-            AuthenticationData authdata = new AuthenticationData();
-            authdata.Username = "";
-            authdata.Password = "";
-            authdata.ApiKey = "";
+            //AuthenticationData authdata = new AuthenticationData("accessToken", "username"); //OAuth2
+            //AuthenticationData authdata = new AuthenticationData("apiKey", "username", "password"); //Basic
+            //Set your credentials for basic or OAuth2 inside the parentheses  
+
+            ////Your test code below
+
+          
+            }
+
         }
     }
-}
+

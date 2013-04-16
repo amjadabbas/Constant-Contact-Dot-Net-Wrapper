@@ -227,8 +227,9 @@ namespace ConstantContactUtility
             Stream stream = Stream.Null;
             try
             {
-                stream = GetResponseStream(new Uri(completeUri), authenticationData);
-
+                //stream = GetResponseStream(new Uri(completeUri), authenticationData);
+                String response = httpGet(authenticationData, completeUri);
+                stream = new MemoryStream(Encoding.UTF8.GetBytes(response));
                 // parse the stream and obtain a Contact object
                 return ContactComponent.GetContactDetails(stream);
             }
@@ -383,7 +384,7 @@ namespace ConstantContactUtility
             try
             {
                 // put the Atom entry at specified Uri
-                PutInformation(authenticationData, new Uri(completeUri), data.ToString());
+                httpPut(authenticationData, completeUri, data.ToString());
             }
             catch (Exception e)
             {
@@ -399,21 +400,6 @@ namespace ConstantContactUtility
 
                 throw new ConstantException(e.Message, e);
             }
-        }
-        /// <summary>
-        /// PUT the data at the specified Uri address. 
-        /// Constant Contact server will not send any response
-        /// </summary>
-        /// <param name="authenticationData">Authentication data (username, password and API Key)</param>
-        /// <param name="address">Uri address</param>
-        /// <param name="data">Data to be send at specified Uri address</param>        
-        private static void PutInformation(AuthenticationData authenticationData, Uri address, string data)
-        {
-            // set the Http request content type
-            const string contentType = @"application/atom+xml";
-
-            // send a Http PUT request and return the response Stream
-            GetResponseStream(authenticationData, address, WebRequestMethods.Http.Put, contentType, data);
         }
         #endregion
 
@@ -467,7 +453,8 @@ namespace ConstantContactUtility
         private static void DeleteInformation(AuthenticationData authenticationData, Uri address)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(address);
-            request.Credentials = CreateCredentialCache(address, authenticationData);
+            //request.Credentials = CreateCredentialCache(address, authenticationData);
+            SetCredentials(authenticationData, ref request);
 
             request.Method = "DELETE";
 
@@ -541,7 +528,7 @@ namespace ConstantContactUtility
             try
             {
                 // put the Atom entry at specified Uri
-                PutInformation(authenticationData, new Uri(completeUri), data.ToString());
+                httpPut(authenticationData, completeUri, data.ToString());
             }
             catch (Exception e)
             {
@@ -882,7 +869,8 @@ namespace ConstantContactUtility
             Uri contactUri = new Uri(authdata.ApiRootUri + list.Link);
             try
             {
-                PutInformation(authdata, contactUri, XMLData.ToString());
+                httpPut(authdata, contactUri.ToString(), XMLData.ToString());
+
             }
             catch (Exception e)
             {
@@ -972,6 +960,7 @@ namespace ConstantContactUtility
             try
             {
                 // post the Atom entry at specified Uri and save the response stream
+                Console.WriteLine(data.ToString());
                 stream = PostInformation(authenticationData, new Uri(authenticationData.AccountEmailCampaignsListUri),
                                          data.ToString());
 
@@ -1071,7 +1060,8 @@ namespace ConstantContactUtility
             string completeUri = String.Format(CultureInfo.InvariantCulture, "{0}/{1}", authenticationData.AccountEmailCampaignsListUri, id);
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(completeUri);
-            request.Credentials = CreateCredentialCache(new Uri(completeUri), authenticationData);
+            //request.Credentials = CreateCredentialCache(new Uri(completeUri), authenticationData);
+            SetCredentials(authenticationData, ref request);
 
             request.Method = "DELETE";
 
@@ -1179,6 +1169,47 @@ namespace ConstantContactUtility
         }
 
         /// <summary>
+        /// Schedule an EmailCampaign
+        /// </summary>        
+        /// <param name="authenticationData">Authentication data (username, password and API Key)</param>
+        /// <param name="campaign">Email Campaign to be updated</param>        
+        /// <exception cref="ArgumentNullException">Thrown if specified EmailCampaign is null</exception>
+        /// <exception cref="ConstantException">Thrown if communication error with Constant server occur 
+        /// or other related with the response from server or if ApiKey, Username or Password are null or empty</exception>
+        /// <returns>Scheduled EmailCampaign</returns>
+        public static EmailCampaign ScheduleEmailCampaign(AuthenticationData authenticationData, EmailCampaign campaign)
+        {
+            ValidateAuthenticationData(authenticationData);
+
+            if (null == campaign)
+            {
+                throw new ArgumentNullException("campaign");
+            }
+
+            StringBuilder data = EmailCampaignComponent.ScheduleEmailXML(campaign, authenticationData, campaign.ID);
+            //StringBuilder data = EmailCampaignComponent.UpdateEmailCampaign(campaign, authenticationData, campaign.ID);
+
+            try
+            {
+                // Put the Atom entry at specified Uri and save the response stream
+                ScheduleEmailCampaign(authenticationData, new Uri(authenticationData.AccountEmailCampaignsListUri + "/" + campaign.ID + "/schedules"),
+                                         data.ToString());
+
+                return null;
+            }
+
+
+
+            catch (Exception e)
+            {
+                WebException ex = (WebException)e;
+
+                String errorResponse = new StreamReader(ex.Response.GetResponseStream()).ReadToEnd();
+                throw new ConstantException(e.Message, e);
+            }
+        }
+
+        /// <summary>
         /// PUT the data at the specified Uri address. 
         /// Constant Contact server will not send any response
         /// </summary>
@@ -1192,6 +1223,16 @@ namespace ConstantContactUtility
 
             // send a Http PUT request and return the response Stream
             GetResponseStream(authenticationData, address, WebRequestMethods.Http.Put, contentType, data);
+        }
+
+        //Schedule an email
+        private static void ScheduleEmailCampaign(AuthenticationData authenticationData, Uri address, string data)
+        {
+            // set the Http request content type
+            const string contentType = @"application/atom+xml";
+
+            // send a Http PUT request and return the response Stream
+            GetResponseStream(authenticationData, address, WebRequestMethods.Http.Post, contentType, data);
         }
         #endregion
 
@@ -1827,7 +1868,8 @@ namespace ConstantContactUtility
             Uri address, string requestMethod, string contentType, byte[] data)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(address);
-            request.Credentials = CreateCredentialCache(address, authenticationData);
+            //request.Credentials = CreateCredentialCache(address, authenticationData);
+            SetCredentials(authenticationData, ref request);
 
             request.Method = requestMethod;
             // set the content type of the data being posted
@@ -1906,7 +1948,8 @@ namespace ConstantContactUtility
         private static Stream GetResponseStream(Uri address, AuthenticationData authenticationData)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(address);
-            request.Credentials = CreateCredentialCache(address, authenticationData);
+            //request.Credentials = CreateCredentialCache(address, authenticationData);
+            SetCredentials(authenticationData, ref request);
             request.Method = WebRequestMethods.Http.Get;
 
             // request MUST include a WWW-Authenticate
@@ -2024,14 +2067,19 @@ namespace ConstantContactUtility
                 throw new ConstantException("Username cannot be null or empty");
             }
 
-            if (string.IsNullOrEmpty(authenticationData.Password))
+            if (authenticationData.AuthenticationVersion == "BASIC")
             {
-                throw new ConstantException("Password cannot be null or empty");
-            }
 
-            if (string.IsNullOrEmpty(authenticationData.ApiKey))
-            {
-                throw new ConstantException("API Key cannot be null or empty");
+                if (string.IsNullOrEmpty(authenticationData.Password))
+                {
+                    throw new ConstantException("Password cannot be null or empty");
+                }
+
+                if (string.IsNullOrEmpty(authenticationData.ApiKey))
+                {
+                    throw new ConstantException("API Key cannot be null or empty");
+                }
+
             }
         }
 
@@ -2069,7 +2117,7 @@ namespace ConstantContactUtility
         }
         #endregion
 
-        #region http utilites, to be merged.
+        #region http utilities
         /// <summary>
         /// Performs HTTP GET to specified URI
         /// </summary>
@@ -2082,8 +2130,9 @@ namespace ConstantContactUtility
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URI);
             // Add Request Header
             request.Accept = "application/atom+xml";
+            request.Timeout = 150000;
             // set the credentials.
-            request.Credentials = new NetworkCredential(Authdata.AccountUserName, Authdata.Password);
+            SetCredentials(Authdata, ref request);
             // Get the response.
             WebResponse response = request.GetResponse();
             // Get the stream containing content returned by the server.
@@ -2109,9 +2158,9 @@ namespace ConstantContactUtility
         public static string urlEncodedPost(AuthenticationData Authdata, string URI, string content)
         {
             // Create a request
-            WebRequest request = WebRequest.Create(URI);
-            // Set API+UN/PWD Credentials
-            request.Credentials = new NetworkCredential(Authdata.AccountUserName, Authdata.Password);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URI);
+            // set the credentials.
+            SetCredentials(Authdata, ref request);
             // Set Method type
             request.Method = "POST";
             // Create POST data and convert it to a byte array.
@@ -2155,7 +2204,7 @@ namespace ConstantContactUtility
             // Add Request Header
             request.Method = "DELETE";
             // set the credentials.
-            request.Credentials = new NetworkCredential(Authdata.AccountUserName, Authdata.Password);
+            SetCredentials(Authdata, ref request);
             // Get the response.
             WebResponse response = request.GetResponse();
             // Get the stream containing content returned by the server.
@@ -2187,7 +2236,7 @@ namespace ConstantContactUtility
             // Set the Method property of the request to POST.
             request.Method = "POST";
             // set the credentials.
-            request.Credentials = new NetworkCredential(Authdata.AccountUserName, Authdata.Password);
+            SetCredentials(Authdata, ref request);
             // Create POST data and convert it to a byte array.
             string postData = data;
             byte[] byteArray = Encoding.UTF8.GetBytes(postData);
@@ -2219,6 +2268,73 @@ namespace ConstantContactUtility
             response.Close();
             Console.Write(responseFromServer);
             return responseFromServer;
+        }
+
+        /// <summary>
+        /// Posts XML data to specified URI
+        /// </summary>
+        /// <param name="Authdata">Authentication Data</param>
+        /// <param name="URI">Target URI to POST XML data to</param>
+        /// <param name="data">XML Data</param>
+        /// <returns>string containing XML response from server</returns>
+        public static string httpPut(AuthenticationData Authdata, string URI, string data)
+        {
+            // Create a request for the URL. 
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URI);
+            // Add Request Header
+            request.Accept = "application/atom+xml";
+            // Set the Method property of the request to POST.
+            request.Method = "PUT";
+            request.Timeout = 150000;
+            // set the credentials.
+            SetCredentials(Authdata, ref request);
+            // Create POST data and convert it to a byte array.
+            string postData = data;
+            byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+            // Set the ContentType property of the WebRequest.
+            request.ContentType = "application/atom+xml";
+            // Set the ContentLength property of the WebRequest.
+            request.ContentLength = byteArray.Length;
+            // Get the request stream.
+            Stream dataStream = request.GetRequestStream();
+            // Write the data to the request stream.
+            dataStream.Write(byteArray, 0, byteArray.Length);
+            // Close the Stream object.
+            dataStream.Close();
+            // Get the response.
+            WebResponse response = request.GetResponse();
+            // Display the status.
+            Console.WriteLine(((HttpWebResponse)response).StatusDescription);
+            // Get the stream containing content returned by the server.
+            dataStream = response.GetResponseStream();
+            // Open the stream using a StreamReader for easy access.
+            StreamReader reader = new StreamReader(dataStream);
+            // Read the content.
+            string responseFromServer = reader.ReadToEnd();
+            // Display the content.
+            Console.WriteLine(responseFromServer);
+            // Clean up the streams.
+            reader.Close();
+            dataStream.Close();
+            response.Close();
+            Console.Write(responseFromServer);
+            return responseFromServer;
+        }
+
+        private static void SetCredentials(AuthenticationData Authdata, ref HttpWebRequest request)
+        {
+            if (Authdata.AuthenticationVersion == "BASIC")
+            {
+                request.Credentials = new NetworkCredential(Authdata.AccountUserName, Authdata.Password);
+            }
+            else if (Authdata.AuthenticationVersion == "OAUTH2")
+            {
+                request.Headers.Add("Authorization", "Bearer " + Authdata.AccessToken);
+            }
+            else
+            {
+                throw (new ConstantAuthenticationException());
+            }
         }
         #endregion
     }

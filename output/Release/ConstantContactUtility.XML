@@ -40,6 +40,240 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:ConstantContactUtility.AuthenticationData">
+            <summary>
+            Class used to store API Key, username and password for the Constant Contact REST API
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData.BaseUri">
+            <summary>
+            Constant Contact base URI
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData.ContactListsUri">
+            <summary>
+            Constant Contact Contact Lists resource name
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData.ContactsUri">
+            <summary>
+            Constant Contact Contacts resource name
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData.CampaignsUri">
+            <summary>
+            Constant Contact Campaigns resource name
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData.SettingsUri">
+            <summary>
+            Constant Contact Settings resource name
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData.EmailAddressesUri">
+            <summary>
+            Constant Contact EmailAddresses resource name
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData.ActivitiesUri">
+            <summary>
+            Constant Contact Activities resource name
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData.FoldersUri">
+            <summary>
+            Constant Contact Folders resource name
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData.HostAddress">
+            <summary>
+            Constant Contact Host Address
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData._apiKey">
+            <summary>
+            API Application Key and is used to identify the application making an API request
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData._username">
+            <summary>
+            Constant Contact Customer's user name
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData._password">
+            <summary>
+            Constant Contact Customer's password
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData._accountBaseUri">
+            <summary>
+            Account base URI.
+            {BaseUri}/{UserName}/, where {UserName} is the account owner's Constant Contact user name
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData._accountContactListsUri">
+            <summary>
+            Account Contact Lists URI
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData._accountContactsUri">
+            <summary>
+            Account Contacts URI
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData._accountServiceDocumentUri">
+            <summary>
+            Account Service document URI
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData._accountUsername">
+            <summary>
+            Account user name used to build the network credentials.
+            Combination of API and Username: {API Key}%{Username}
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData._accountEmailsListUri">
+            <summary>
+            Account Emails List URI
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData._accountEmailCampaignWSCustomerUri">
+            <summary>
+            Get the WS URI for current customer
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData._accountEmailCampaignsListUri">
+            <summary>
+            Get the EmailCampaign URI for current customer
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData._accountActivitiesUri">
+            <summary>
+            Get the Activities URI for current customer
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData._accountFoldersUri">
+            <summary>
+            Get the Folders URI for current customer
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData._accessToken">
+            <summary>
+            Access Token used for OAuth 2.0
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData._authenticationVersion">
+            <summary>
+            What type of Authentication used, types supported are Basic and OAuth 2.0
+            </summary>
+        </member>
+        <member name="M:ConstantContactUtility.AuthenticationData.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:ConstantContactUtility.AuthenticationData.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="APIKey">API Application Key and is used to identify the application making an API request</param>
+            <param name="username">Constant Contact Customer's user name</param>
+            <param name="password">Constant Contact Customer's password</param>
+        </member>
+        <member name="M:ConstantContactUtility.AuthenticationData.#ctor(System.String,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="AccessToken">Access Token for the Constant Contact account</param>
+            <param name="username">Constant Contact Customer's user name</param>
+        </member>
+        <member name="M:ConstantContactUtility.AuthenticationData.UpdateAccountUrIs">
+            <summary>
+            Update the account Base URI
+            </summary>
+        </member>
+        <member name="M:ConstantContactUtility.AuthenticationData.UpdateAccountUserName">
+            <summary>
+            Update the account user name used to build the network credentials.
+            Combination of API and Username: {API Key}%{Username}
+            </summary>
+        </member>
+        <member name="P:ConstantContactUtility.AuthenticationData.Username">
+            <summary>
+            Gets or sets the account username
+            </summary>
+        </member>
+        <member name="P:ConstantContactUtility.AuthenticationData.Password">
+            <summary>
+            Gets or sets the account password
+            </summary>
+        </member>
+        <member name="P:ConstantContactUtility.AuthenticationData.ApiKey">
+            <summary>
+            Gets or sets the account API Key
+            </summary>
+        </member>
+        <member name="P:ConstantContactUtility.AuthenticationData.AccountServiceDocumentUri">
+            <summary>
+            Gets the account Service document URI
+            </summary>
+        </member>
+        <member name="P:ConstantContactUtility.AuthenticationData.AccountContactsUri">
+            <summary>
+            Gets the account Contacts URI
+            </summary>
+        </member>
+        <member name="P:ConstantContactUtility.AuthenticationData.AccountContactListsUri">
+            <summary>
+            Gets the account Contact Lists URI
+            </summary>
+        </member>
+        <member name="P:ConstantContactUtility.AuthenticationData.AccountUserName">
+            <summary>
+            Gets the account user name used to build the network credentials.
+            (combination of API and Username: {API Key}%{Username})
+            </summary>
+        </member>
+        <member name="P:ConstantContactUtility.AuthenticationData.ApiRootUri">
+            <summary>
+            Gets the root URI for the API connect
+            </summary>
+        </member>
+        <member name="P:ConstantContactUtility.AuthenticationData.AccountEmailsListUri">
+            <summary>
+            Gets the account Emails Lists URI
+            </summary>
+        </member>
+        <member name="P:ConstantContactUtility.AuthenticationData.AccountEmailCampaignWSCustomerUri">
+            <summary>
+            Get the WS URI for current customer
+            </summary>
+        </member>
+        <member name="P:ConstantContactUtility.AuthenticationData.AccountEmailCampaignsListUri">
+            <summary>
+            Get the EmailCampaign URI for current customer
+            </summary>
+        </member>
+        <member name="P:ConstantContactUtility.AuthenticationData.accountActivitiesUri">
+            <summary>
+            Get the Activities URI for current customer
+            </summary>
+        </member>
+        <member name="P:ConstantContactUtility.AuthenticationData.accountFoldersUri">
+            <summary>
+            Get the Folders URI for current customer
+            </summary>
+        </member>
+        <member name="P:ConstantContactUtility.AuthenticationData.CampaignsURI">
+            <summary>
+            Get the CampaignsURI
+            </summary>
+        </member>
+        <member name="P:ConstantContactUtility.AuthenticationData.AuthenticationVersion">
+            <summary>
+            What type of Authentication are you using, supported types are Basic and OAuth 2.0
+            </summary>
+        </member>
         <member name="T:ConstantContactUtility.Utility">
             <summary>
             Provides utility methods to create a new Contact, update an existing one, etc.
@@ -423,6 +657,14 @@
             </summary>
             <param name="authdata">Authentication Data</param>
             <param name="data">CSV or text, dumped to string</param>
+            <param name="listIds">ID(s) of target lists to upload to</param>
+            <returns>Calls urlEncodedPost, which then returns response from server (string)</returns>
+        </member>
+        <member name="M:ConstantContactUtility.Utility.clearContacts(ConstantContactUtility.AuthenticationData,System.Collections.Generic.IList{System.String})">
+            <summary>
+            Removes all contacts from selected lists
+            </summary>
+            <param name="authdata">Authentication Data</param>
             <param name="listIds">ID(s) of target lists to upload to</param>
             <returns>Calls urlEncodedPost, which then returns response from server (string)</returns>
         </member>
@@ -1603,218 +1845,161 @@
             </example>
             </returns>
         </member>
-        <member name="T:ConstantContactUtility.AuthenticationData">
+        <member name="T:ConstantContactUtility.Components.ContactListComponent">
             <summary>
-            Class used to store API Key, username and password for the Constant Contact REST API
+            Parse response Streams into Contact Lists, creates entries for creating and updating Contact Lists
             
             </summary>
         </member>
-        <member name="F:ConstantContactUtility.AuthenticationData.BaseUri">
+        <member name="F:ConstantContactUtility.Components.ContactListComponent.AtomNamespace">
             <summary>
-            Constant Contact base URI
+            Atom namespace
             </summary>
         </member>
-        <member name="F:ConstantContactUtility.AuthenticationData.ContactListsUri">
+        <member name="F:ConstantContactUtility.Components.ContactListComponent.ConstantNamespace">
             <summary>
-            Constant Contact Contact Lists resource name
+            Constant namespace
             </summary>
         </member>
-        <member name="F:ConstantContactUtility.AuthenticationData.ContactsUri">
+        <member name="F:ConstantContactUtility.Components.ContactListComponent.ActiveSystemListId">
             <summary>
-            Constant Contact Contacts resource name
+            Id of Active system predefined Contact List
             </summary>
         </member>
-        <member name="F:ConstantContactUtility.AuthenticationData.CampaignsUri">
+        <member name="F:ConstantContactUtility.Components.ContactListComponent.RemovedSystemListId">
             <summary>
-            Constant Contact Campaigns resource name
+            Id of Removed system predefined Contact List
             </summary>
         </member>
-        <member name="F:ConstantContactUtility.AuthenticationData.SettingsUri">
+        <member name="F:ConstantContactUtility.Components.ContactListComponent.DoNotMailSystemListId">
             <summary>
-            Constant Contact Settings resource name
+            Id of Do-Not-Mail system predefined Contact List
             </summary>
         </member>
-        <member name="F:ConstantContactUtility.AuthenticationData.EmailAddressesUri">
+        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlAttributeValueNext">
             <summary>
-            Constant Contact EmailAddresses resource name
+            Attribute value used to retrieve the next link of chunk data
             </summary>
         </member>
-        <member name="F:ConstantContactUtility.AuthenticationData.ActivitiesUri">
+        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlAttributeValueEdit">
             <summary>
-            Constant Contact Activities resource name
+            Attribute value used to retrieve the id of a Contact List
             </summary>
         </member>
-        <member name="F:ConstantContactUtility.AuthenticationData.FoldersUri">
+        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlElementName">
             <summary>
-            Constant Contact Folders resource name
+            Xml node name of Contact List Name
             </summary>
         </member>
-        <member name="F:ConstantContactUtility.AuthenticationData.HostAddress">
+        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlElementShortName">
             <summary>
-            Constant Contact Host Address
+            Xml node name of Contact List Shortname
             </summary>
         </member>
-        <member name="F:ConstantContactUtility.AuthenticationData._apiKey">
+        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlElementOptInDefault">
             <summary>
-            API Application Key and is used to identify the application making an API request
+            Xml node name of Contact List OptInDefault
             </summary>
         </member>
-        <member name="F:ConstantContactUtility.AuthenticationData._username">
+        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlElementSortOrder">
             <summary>
-            Constant Contact Customer's user name
+            Xml node name of Contact List SortOrder
             </summary>
         </member>
-        <member name="F:ConstantContactUtility.AuthenticationData._password">
+        <member name="M:ConstantContactUtility.Components.ContactListComponent.IsPredefinedSystemList(System.String)">
             <summary>
-            Constant Contact Customer's password
+            Check if specified Contact List name is a Constant Contact system predefined list
             </summary>
+            <param name="listName">Name of Contact List</param>
+            <returns>Type of system predefined list. 
+            Will return ContactSystemList.Undefined if is not a system List
+            </returns>
         </member>
-        <member name="F:ConstantContactUtility.AuthenticationData._accountBaseUri">
+        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetContactListsCollection(System.IO.Stream,System.String@)">
             <summary>
-            Account base URI.
-            {BaseUri}/{UserName}/, where {UserName} is the account owner's Constant Contact user name
+            Get Contact List collection from the Http response stream.
+            The collection is sorted by the Sort Order and it will include the system predefined lists ("Active", "Removed", "DoNotEmail")
             </summary>
+            <param name="stream">Response stream</param>
+            <param name="next">Link to the next chunk of data</param>
+            <returns>Collection of Contact List</returns>
         </member>
-        <member name="F:ConstantContactUtility.AuthenticationData._accountContactListsUri">
+        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetContactListDetails(System.IO.Stream)">
             <summary>
-            Account Contact Lists URI
+            Retrieve an Individual Contact List from the Http response stream
             </summary>
+            <param name="stream">Reponse Stream</param>
+            <returns>Contact List parsed from the reponse Stream</returns>
         </member>
-        <member name="F:ConstantContactUtility.AuthenticationData._accountContactsUri">
+        <member name="M:ConstantContactUtility.Components.ContactListComponent.CreateNewContactList(ConstantContactBO.ContactList)">
             <summary>
-            Account Contacts URI
+            Get the Atom entry for newly Contact List to be send to Constant server
             </summary>
+            <param name="list">Contact List to be created</param>
+            <returns>Atom entry used to create new Contact List</returns>
         </member>
-        <member name="F:ConstantContactUtility.AuthenticationData._accountServiceDocumentUri">
+        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetNextLink(System.Xml.XPath.XPathNavigator,System.Xml.IXmlNamespaceResolver)">
             <summary>
-            Account Service document URI
+            Gets the link to next chunk of data
             </summary>
+            <param name="navigator">Xml data cursor model</param>
+            <param name="resolver">Xml namespace resolver</param>
+            <returns>Link to the next chunk of data</returns>
         </member>
-        <member name="F:ConstantContactUtility.AuthenticationData._accountUsername">
+        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetLink(System.Xml.XPath.XPathNavigator,System.String,System.Xml.IXmlNamespaceResolver)">
             <summary>
-            Account user name used to build the network credentials.
-            Combination of API and Username: {API Key}%{Username}
+            Gets the link with specified rel attribute value
             </summary>
+            <param name="navigator">Xml data cursor model</param>
+            <param name="attributeValue">Value of "rel" attribute</param>
+            <param name="resolver">Xml namespace resolver</param>
+            <returns>Link to the chunk data</returns>
         </member>
-        <member name="F:ConstantContactUtility.AuthenticationData._accountEmailsListUri">
+        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetContactListLink(System.Xml.XPath.XPathNavigator,System.Xml.IXmlNamespaceResolver)">
             <summary>
-            Account Emails List URI
+            Gets the edit Link of Contact List from Xml data
             </summary>
+            <param name="node">Xml data cursor model</param>
+            <param name="resolver">Xml namespace resolver</param>
+            <returns>Edit link of Contact List</returns>
         </member>
-        <member name="F:ConstantContactUtility.AuthenticationData._accountEmailCampaignWSCustomerUri">
+        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetContactListId(System.Xml.XPath.XPathNavigator)">
             <summary>
-            Get the WS URI for current customer
+            Gets the Id of Contact List from Xml data
             </summary>
+            <param name="node">Xml data cursor model</param>
+            <returns>Id of Contact List</returns>
         </member>
-        <member name="F:ConstantContactUtility.AuthenticationData._accountEmailCampaignsListUri">
+        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetContactList(System.Xml.XPath.XPathNavigator,System.Xml.IXmlNamespaceResolver)">
             <summary>
-            Get the EmailCampaign URI for current customer
+            Get ContactList object from specified Xml data
             </summary>
+            <param name="node">Xml data cursor model</param>
+            <param name="resolver">Xml namespace resolver</param>
+            <returns>Contact List</returns>
         </member>
-        <member name="F:ConstantContactUtility.AuthenticationData._accountActivitiesUri">
+        <member name="M:ConstantContactUtility.Components.ContactListComponent.CreateAtomEntry(ConstantContactBO.ContactList)">
             <summary>
-            Get the Activities URI for current customer
+            Create an Atom entry used to create a new Contact List
             </summary>
-        </member>
-        <member name="F:ConstantContactUtility.AuthenticationData._accountFoldersUri">
-            <summary>
-            Get the Folders URI for current customer
-            </summary>
-        </member>
-        <member name="M:ConstantContactUtility.AuthenticationData.#ctor">
-            <summary>
-            Default constructor
-            </summary>
-        </member>
-        <member name="M:ConstantContactUtility.AuthenticationData.#ctor(System.String,System.String,System.String)">
-            <summary>
-            Constructor
-            </summary>
-            <param name="APIKey">API Application Key and is used to identify the application making an API request</param>
-            <param name="username">Constant Contact Customer's user name</param>
-            <param name="password">Constant Contact Customer's password</param>
-        </member>
-        <member name="M:ConstantContactUtility.AuthenticationData.UpdateAccountUrIs">
-            <summary>
-            Update the account Base URI
-            </summary>
-        </member>
-        <member name="M:ConstantContactUtility.AuthenticationData.UpdateAccountUserName">
-            <summary>
-            Update the account user name used to build the network credentials.
-            Combination of API and Username: {API Key}%{Username}
-            </summary>
-        </member>
-        <member name="P:ConstantContactUtility.AuthenticationData.Username">
-            <summary>
-            Gets or sets the account username
-            </summary>
-        </member>
-        <member name="P:ConstantContactUtility.AuthenticationData.Password">
-            <summary>
-            Gets or sets the account password
-            </summary>
-        </member>
-        <member name="P:ConstantContactUtility.AuthenticationData.ApiKey">
-            <summary>
-            Gets or sets the account API Key
-            </summary>
-        </member>
-        <member name="P:ConstantContactUtility.AuthenticationData.AccountServiceDocumentUri">
-            <summary>
-            Gets the account Service document URI
-            </summary>
-        </member>
-        <member name="P:ConstantContactUtility.AuthenticationData.AccountContactsUri">
-            <summary>
-            Gets the account Contacts URI
-            </summary>
-        </member>
-        <member name="P:ConstantContactUtility.AuthenticationData.AccountContactListsUri">
-            <summary>
-            Gets the account Contact Lists URI
-            </summary>
-        </member>
-        <member name="P:ConstantContactUtility.AuthenticationData.AccountUserName">
-            <summary>
-            Gets the account user name used to build the network credentials.
-            (combination of API and Username: {API Key}%{Username})
-            </summary>
-        </member>
-        <member name="P:ConstantContactUtility.AuthenticationData.ApiRootUri">
-            <summary>
-            Gets the root URI for the API connect
-            </summary>
-        </member>
-        <member name="P:ConstantContactUtility.AuthenticationData.AccountEmailsListUri">
-            <summary>
-            Gets the account Emails Lists URI
-            </summary>
-        </member>
-        <member name="P:ConstantContactUtility.AuthenticationData.AccountEmailCampaignWSCustomerUri">
-            <summary>
-            Get the WS URI for current customer
-            </summary>
-        </member>
-        <member name="P:ConstantContactUtility.AuthenticationData.AccountEmailCampaignsListUri">
-            <summary>
-            Get the EmailCampaign URI for current customer
-            </summary>
-        </member>
-        <member name="P:ConstantContactUtility.AuthenticationData.accountActivitiesUri">
-            <summary>
-            Get the Activities URI for current customer
-            </summary>
-        </member>
-        <member name="P:ConstantContactUtility.AuthenticationData.accountFoldersUri">
-            <summary>
-            Get the Folders URI for current customer
-            </summary>
-        </member>
-        <member name="P:ConstantContactUtility.AuthenticationData.CampaignsURI">
-            <summary>
-            Get the CampaignsURI
-            </summary>
+            <param name="list">Contact List to be created</param>
+            <returns>Atom entry used to create new Contact List
+            <example>
+                <entry xmlns="http://www.w3.org/2005/Atom">
+                    <id>data:,</id>
+                    <title/>
+                    <author/>
+                    <updated>2008-04-16</updated>
+                    <content type="application/vnd.ctct+xml">
+                        <ContactList xmlns="http://ws.constantcontact.com/ns/1.0/">
+                            <OptInDefault>false</OptInDefault>
+                            <Name>A New List</Name>
+                            <SortOrder>99</SortOrder>
+                        </ContactList>
+                    </content>
+                </entry>
+            </example>
+            </returns>
         </member>
         <member name="T:ConstantContactUtility.Components.EmailComponent">
             <summary>
@@ -1972,162 +2157,6 @@
             <param name="attributeValue">Value of "rel" attribute</param>
             <param name="resolver">Xml namespace resolver</param>
             <returns>Link to the chunk data</returns>
-        </member>
-        <member name="T:ConstantContactUtility.Components.ContactListComponent">
-            <summary>
-            Parse response Streams into Contact Lists, creates entries for creating and updating Contact Lists
-            
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.ContactListComponent.AtomNamespace">
-            <summary>
-            Atom namespace
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.ContactListComponent.ConstantNamespace">
-            <summary>
-            Constant namespace
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.ContactListComponent.ActiveSystemListId">
-            <summary>
-            Id of Active system predefined Contact List
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.ContactListComponent.RemovedSystemListId">
-            <summary>
-            Id of Removed system predefined Contact List
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.ContactListComponent.DoNotMailSystemListId">
-            <summary>
-            Id of Do-Not-Mail system predefined Contact List
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlAttributeValueNext">
-            <summary>
-            Attribute value used to retrieve the next link of chunk data
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlAttributeValueEdit">
-            <summary>
-            Attribute value used to retrieve the id of a Contact List
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlElementName">
-            <summary>
-            Xml node name of Contact List Name
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlElementShortName">
-            <summary>
-            Xml node name of Contact List Shortname
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlElementOptInDefault">
-            <summary>
-            Xml node name of Contact List OptInDefault
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlElementSortOrder">
-            <summary>
-            Xml node name of Contact List SortOrder
-            </summary>
-        </member>
-        <member name="M:ConstantContactUtility.Components.ContactListComponent.IsPredefinedSystemList(System.String)">
-            <summary>
-            Check if specified Contact List name is a Constant Contact system predefined list
-            </summary>
-            <param name="listName">Name of Contact List</param>
-            <returns>Type of system predefined list. 
-            Will return ContactSystemList.Undefined if is not a system List
-            </returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetContactListsCollection(System.IO.Stream,System.String@)">
-            <summary>
-            Get Contact List collection from the Http response stream.
-            The collection is sorted by the Sort Order and it will include the system predefined lists ("Active", "Removed", "DoNotEmail")
-            </summary>
-            <param name="stream">Response stream</param>
-            <param name="next">Link to the next chunk of data</param>
-            <returns>Collection of Contact List</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetContactListDetails(System.IO.Stream)">
-            <summary>
-            Retrieve an Individual Contact List from the Http response stream
-            </summary>
-            <param name="stream">Reponse Stream</param>
-            <returns>Contact List parsed from the reponse Stream</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.ContactListComponent.CreateNewContactList(ConstantContactBO.ContactList)">
-            <summary>
-            Get the Atom entry for newly Contact List to be send to Constant server
-            </summary>
-            <param name="list">Contact List to be created</param>
-            <returns>Atom entry used to create new Contact List</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetNextLink(System.Xml.XPath.XPathNavigator,System.Xml.IXmlNamespaceResolver)">
-            <summary>
-            Gets the link to next chunk of data
-            </summary>
-            <param name="navigator">Xml data cursor model</param>
-            <param name="resolver">Xml namespace resolver</param>
-            <returns>Link to the next chunk of data</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetLink(System.Xml.XPath.XPathNavigator,System.String,System.Xml.IXmlNamespaceResolver)">
-            <summary>
-            Gets the link with specified rel attribute value
-            </summary>
-            <param name="navigator">Xml data cursor model</param>
-            <param name="attributeValue">Value of "rel" attribute</param>
-            <param name="resolver">Xml namespace resolver</param>
-            <returns>Link to the chunk data</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetContactListLink(System.Xml.XPath.XPathNavigator,System.Xml.IXmlNamespaceResolver)">
-            <summary>
-            Gets the edit Link of Contact List from Xml data
-            </summary>
-            <param name="node">Xml data cursor model</param>
-            <param name="resolver">Xml namespace resolver</param>
-            <returns>Edit link of Contact List</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetContactListId(System.Xml.XPath.XPathNavigator)">
-            <summary>
-            Gets the Id of Contact List from Xml data
-            </summary>
-            <param name="node">Xml data cursor model</param>
-            <returns>Id of Contact List</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetContactList(System.Xml.XPath.XPathNavigator,System.Xml.IXmlNamespaceResolver)">
-            <summary>
-            Get ContactList object from specified Xml data
-            </summary>
-            <param name="node">Xml data cursor model</param>
-            <param name="resolver">Xml namespace resolver</param>
-            <returns>Contact List</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.ContactListComponent.CreateAtomEntry(ConstantContactBO.ContactList)">
-            <summary>
-            Create an Atom entry used to create a new Contact List
-            </summary>
-            <param name="list">Contact List to be created</param>
-            <returns>Atom entry used to create new Contact List
-            <example>
-                <entry xmlns="http://www.w3.org/2005/Atom">
-                    <id>data:,</id>
-                    <title/>
-                    <author/>
-                    <updated>2008-04-16</updated>
-                    <content type="application/vnd.ctct+xml">
-                        <ContactList xmlns="http://ws.constantcontact.com/ns/1.0/">
-                            <OptInDefault>false</OptInDefault>
-                            <Name>A New List</Name>
-                            <SortOrder>99</SortOrder>
-                        </ContactList>
-                    </content>
-                </entry>
-            </example>
-            </returns>
         </member>
     </members>
 </doc>

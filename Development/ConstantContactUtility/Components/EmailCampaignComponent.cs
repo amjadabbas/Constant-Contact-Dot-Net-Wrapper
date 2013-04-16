@@ -489,7 +489,7 @@ namespace ConstantContactUtility.Components
                 data.AppendFormat("<EmailContentFormat>{0}</EmailContentFormat>", emailCampaign.EmailContentFormat);
                 data.AppendFormat("<EmailContent>{0}</EmailContent>", emailCampaign.EmailContentFormat.Equals("HTML") ? emailCampaign.Content : emailCampaign.XContent);
                 data.AppendFormat("<EmailTextContent>{0}</EmailTextContent>", emailCampaign.TextContent);
-                data.AppendFormat("<StyleSheet>{0}</StyleSheet>", emailCampaign.StyleSheet);
+                //data.AppendFormat("<StyleSheet>{0}</StyleSheet>", emailCampaign.StyleSheet);
             }
             data.Append("<ContactLists>");
             if (emailCampaign.ContactLists.Count > 0)
@@ -524,6 +524,35 @@ namespace ConstantContactUtility.Components
             data.AppendFormat("<title type=\"text\">Campaigns for customer: {0}</title>", authenticationData.Username);
             data.AppendFormat("<link href=\"campaigns\" /><link href=\"campaigns\" rel=\"self\" /><author><name>{0}</name></author><updated>{1}</updated></source></entry>", authenticationData.Username, DateTime.Now.ToString("o"));//yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'
 
+            return data;
+        }
+
+
+        public static StringBuilder ScheduleEmailXML(EmailCampaign emailCampaign, AuthenticationData authenticationData, string id)
+        {
+            //To schedule an email an hour out
+            TimeZone localZone = TimeZone.CurrentTimeZone;
+            System.DateTime now = localZone.ToUniversalTime(System.DateTime.Now);
+            System.TimeSpan duration = new System.TimeSpan(0, 1, 0, 0);
+            System.DateTime nowPlusAnHour = now.Add(duration);
+            //System.DateTime nowPlusAnHour = System.DateTime.Now.Add(duration);
+
+            StringBuilder data = new StringBuilder();
+
+            data.Append("<?xml version='1.0' encoding='UTF-8'?>");
+            data.AppendFormat("<entry xmlns=\"http://www.w3.org/2005/Atom\">");
+            data.AppendFormat("<link href=\"/ws/customers/{0}/campaigns/{1}/schedules/1\" rel=\"edit\" />", authenticationData.Username, emailCampaign.ID);
+            data.AppendFormat("<id>http://api.constantcontact.com/ws/customers/{0}/campaigns/{1}/schedules/1</id>", authenticationData.Username, emailCampaign.ID);
+            data.AppendFormat("<title type=\"text\">{0}</title>", emailCampaign.Name);
+            data.AppendFormat("<updated>{0}</updated>", DateTime.Now.ToString("o"));//yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'
+            data.AppendFormat("<author><name>{0}</name></author>", "Constant Contact");
+            data.Append("<content type=\"application/vnd.ctct+xml\">");
+            data.AppendFormat("<Schedule xmlns=\"{0}\" id=\"http://api.constantcontact.com/ws/customers/{1}/campaigns/{2}/schedules/1\" >", ConstantNamespace, authenticationData.Username, emailCampaign.ID);
+           
+            data.AppendFormat("<ScheduledTime>{0}</ScheduledTime>", nowPlusAnHour.ToString("o"));//yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'
+            //data.AppendFormat("<ScheduledTime>2013-03-13T20:03:35.000Z</ScheduledTime>");
+            data.Append("</Schedule></content></entry>");
+           
             return data;
         }
 
@@ -729,7 +758,7 @@ namespace ConstantContactUtility.Components
                                 break;
 
                             case EmailCampaignXmlNodeStyleSheet:
-                                emailCampaign.StyleSheet = currentNode.Value;
+                                //emailCampaign.StyleSheet = currentNode.Value;
                                 break;
                         }
 
