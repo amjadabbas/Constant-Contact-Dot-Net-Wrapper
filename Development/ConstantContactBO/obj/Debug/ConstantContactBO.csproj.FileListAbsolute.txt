@@ -15,3 +15,25 @@ C:\Users\dberard\Desktop\Wrapper\output\Debug\ConstantContactBO.pdb
 C:\Users\dberard\Desktop\Wrapper\Development\ConstantContactBO\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\dberard\Desktop\Wrapper\Development\ConstantContactBO\obj\Debug\ConstantContactBO.dll
 C:\Users\dberard\Desktop\Wrapper\Development\ConstantContactBO\obj\Debug\ConstantContactBO.pdb
+C:\Users\swallace\Desktop\NET updated example\output\Debug\ConstantContactBO.dll
+C:\Users\swallace\Desktop\NET updated example\output\Debug\ConstantContactBO.pdb
+C:\Users\swallace\Desktop\NET updated example\Development\ConstantContactBO\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\swallace\Desktop\NET updated example\Development\ConstantContactBO\obj\Debug\ConstantContactBO.dll
+C:\Users\swallace\Desktop\NET updated example\Development\ConstantContactBO\obj\Debug\ConstantContactBO.pdb
+C:\Users\swallace\Desktop\NET updated example\output\Debug\ConstantContactBO.XML
+C:\Users\dberard\Documents\ShannonWallace\NET updated example\output\Debug\ConstantContactBO.XML
+C:\Users\dberard\Documents\ShannonWallace\NET updated example\output\Debug\ConstantContactBO.dll
+C:\Users\dberard\Documents\ShannonWallace\NET updated example\output\Debug\ConstantContactBO.pdb
+C:\Users\dberard\Documents\ShannonWallace\NET updated example\Development\ConstantContactBO\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\dberard\Documents\ShannonWallace\NET updated example\Development\ConstantContactBO\obj\Debug\ConstantContactBO.dll
+C:\Users\dberard\Documents\ShannonWallace\NET updated example\Development\ConstantContactBO\obj\Debug\ConstantContactBO.pdb
+C:\Users\swallace\Desktop\NET updated streams\NET updated example\output\Debug\ConstantContactBO.dll
+C:\Users\swallace\Desktop\NET updated streams\NET updated example\output\Debug\ConstantContactBO.pdb
+C:\Users\swallace\Desktop\NET updated streams\NET updated example\Development\ConstantContactBO\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\swallace\Desktop\NET updated streams\NET updated example\Development\ConstantContactBO\obj\Debug\ConstantContactBO.dll
+C:\Users\swallace\Desktop\NET updated streams\NET updated example\Development\ConstantContactBO\obj\Debug\ConstantContactBO.pdb
+C:\Users\swallace\Desktop\NET updated streams\NET updated for release\output\Debug\ConstantContactBO.dll
+C:\Users\swallace\Desktop\NET updated streams\NET updated for release\output\Debug\ConstantContactBO.pdb
+C:\Users\swallace\Desktop\NET updated streams\NET updated for release\Development\ConstantContactBO\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\swallace\Desktop\NET updated streams\NET updated for release\Development\ConstantContactBO\obj\Debug\ConstantContactBO.dll
+C:\Users\swallace\Desktop\NET updated streams\NET updated for release\Development\ConstantContactBO\obj\Debug\ConstantContactBO.pdb

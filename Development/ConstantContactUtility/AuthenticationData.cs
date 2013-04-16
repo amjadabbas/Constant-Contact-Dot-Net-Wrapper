@@ -5,7 +5,6 @@ namespace ConstantContactUtility
 {
     /// <summary>
     /// Class used to store API Key, username and password for the Constant Contact REST API
-    /// 
     /// </summary>
     public class AuthenticationData
     {
@@ -103,6 +102,14 @@ namespace ConstantContactUtility
         /// Get the Folders URI for current customer
         /// </summary>
         private string _accountFoldersUri;
+        /// <summary>
+        /// Access Token used for OAuth 2.0
+        /// </summary>
+        private string _accessToken;
+        /// <summary>
+        /// What type of Authentication used, types supported are Basic and OAuth 2.0
+        /// </summary>
+        private string _authenticationVersion;
         #endregion
 
         #region Properties
@@ -232,6 +239,21 @@ namespace ConstantContactUtility
         {
             get { return CampaignsUri; }
         }
+
+        /// <summary>
+        /// What type of Authentication are you using, supported types are Basic and OAuth 2.0
+        /// </summary>
+        public string AuthenticationVersion
+        {
+            get { return _authenticationVersion; }
+        }
+
+        public string AccessToken
+        {
+            set { _accessToken = value; }
+            get { return _accessToken; }
+        }
+
         #endregion
 
         #region Constructor
@@ -253,6 +275,22 @@ namespace ConstantContactUtility
             _apiKey = APIKey;
             _username = username;
             _password = password;
+            _authenticationVersion = "BASIC";
+
+            UpdateAccountUrIs();
+            UpdateAccountUserName();
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="AccessToken">Access Token for the Constant Contact account</param>
+        /// <param name="username">Constant Contact Customer's user name</param>
+        public AuthenticationData(string AccessToken, string username)
+        {
+            _username = username;
+            _accessToken = AccessToken;
+            _authenticationVersion = "OAUTH2";
 
             UpdateAccountUrIs();
             UpdateAccountUserName();

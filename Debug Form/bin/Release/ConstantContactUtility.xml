@@ -4,42 +4,6 @@
         <name>ConstantContactUtility</name>
     </assembly>
     <members>
-        <member name="T:ConstantContactUtility.Utils">
-            <summary>
-            Utils class
-            </summary>
-        </member>
-        <member name="M:ConstantContactUtility.Utils.EnumToList``1">
-            <summary>
-            Converts a Enum into a List T
-            </summary>
-            <typeparam name="T">Enum</typeparam>
-            <returns>List</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Utils.GreetingName">
-            <summary>
-            List of Greetings format
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:ConstantContactUtility.Utils.GetAllCountries">
-            <summary>
-            List of all countries
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:ConstantContactUtility.Utils.GetAllUSStates">
-            <summary>
-            List of all US States
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:ConstantContactUtility.Utils.GetEmailCampaignsStatusList">
-            <summary>
-            List of Email Campaign Statuses
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:ConstantContactUtility.Components.EmailComponent">
             <summary>
             Parse response Streams into Emails
@@ -196,6 +160,349 @@
             <param name="attributeValue">Value of "rel" attribute</param>
             <param name="resolver">Xml namespace resolver</param>
             <returns>Link to the chunk data</returns>
+        </member>
+        <member name="T:ConstantContactUtility.Components.EmailCampaignComponent">
+            <summary>
+            Parse response Streams into Contacts, creates entries for creating and updating Contacts
+            
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.AtomNamespace">
+            <summary>
+            Atom namespace
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.ConstantNamespace">
+            <summary>
+            Constant namespace
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlAttributeValueEdit">
+            <summary>
+            Attribute value used to edit an EmailCampaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeName">
+            <summary>
+            Name Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeStatus">
+            <summary>
+            Status Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeDate">
+            <summary>
+            Date Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeContactLists">
+            <summary>
+            ContactLists parent Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeContactList">
+            <summary>
+            ContactList Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeLastEditDate">
+            <summary>
+            LastEditDate Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeNextRunDate">
+            <summary>
+            NextRunDate Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeSent">
+            <summary>
+            Sent Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeOpens">
+            <summary>
+            Opens Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeClicks">
+            <summary>
+            Clicks Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeBounces">
+            <summary>
+            Bounces Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeForwards">
+            <summary>
+            Forwards Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeSpamReports">
+            <summary>
+            SpamReports Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeSubject">
+            <summary>
+            Subject Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeFromName">
+            <summary>
+            FromName Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeCampaignType">
+            <summary>
+            CampaignType Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeViewAsWebpage">
+            <summary>
+            ViewAsWebpage Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeViewAsWebpageLinkText">
+            <summary>
+            ViewAsWebpageLinkText Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeViewAsWebpageText">
+            <summary>
+            ViewAsWebpageText Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodePermissionReminder">
+            <summary>
+            PermissionReminder Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodePermissionReminderText">
+            <summary>
+            PermissionReminderText Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeGreetingSalutation">
+            <summary>
+            GreetingSalutation Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeGreetingString">
+            <summary>
+            GreetingString Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeOrganizationName">
+            <summary>
+            OrganizationName Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeOrganizationAddress1">
+            <summary>
+            OrganizationAddress1 Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeOrganizationAddress2">
+            <summary>
+            OrganizationAddress2 Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeOrganizationAddress3">
+            <summary>
+            OrganizationAddress3 Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeOrganizationCity">
+            <summary>
+            OrganizationCity Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeOrganizationState">
+            <summary>
+            OrganizationState Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeOrganizationInternationalState">
+            <summary>
+            OrganizationInternationalState Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeOrganizationCountry">
+            <summary>
+            OrganizationCountry Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeOrganizationPostalCode">
+            <summary>
+            OrganizationPostalCode Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeIncludeForwardEmail">
+            <summary>
+            IncludeForwardEmail Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeForwardEmailLinkText">
+            <summary>
+            ForwardEmailLinkText Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeIncludeSubscribeLink">
+            <summary>
+            IncludeSubscribeLink Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeSubscribeLinkText">
+            <summary>
+            SubscribeLinkText Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeEmailContentFormat">
+            <summary>
+            EmailContentFormat Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeEmailContent">
+            <summary>
+            EmailContent Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeEmailTextContent">
+            <summary>
+            EmailTextContent Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeOptOuts">
+            <summary>
+            OptOuts Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeGreetingName">
+            <summary>
+            GreetingName Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeFromEmail">
+            <summary>
+            FromEmail Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeReplyToEmail">
+            <summary>
+            ReplyToEmail Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeEmail">
+            <summary>
+            ReplyToEmail Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeEmailAddress">
+            <summary>
+            ReplyToEmail Node Of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeStyleSheet">
+            <summary>
+            StyleSheet Node of Email Campaign
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.emailCampaignStatusNames">
+            <summary>
+            Association between the EmailCampaignStatus enum and real EmailCampaign Status values
+            </summary>
+        </member>
+        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.#cctor">
+            <summary>
+            Class constructor
+            </summary>
+        </member>
+        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.CreateNewEmailCampaign(ConstantContactBO.Entities.EmailCampaign,ConstantContactUtility.AuthenticationData)">
+            <summary>
+            Get the Atom entry for newly Email Campaign to be send to Constant server
+            </summary>
+            <param name="emailCampaign">EmailCampaign to be created</param>
+            <param name="authenticationData">Account Owner EmailCampaign resource</param>
+            <returns>Atom entry for creating specified EmailCampaign</returns>
+        </member>
+        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.UpdateEmailCampaign(ConstantContactBO.Entities.EmailCampaign,ConstantContactUtility.AuthenticationData,System.String)">
+            <summary>
+            Get the Atom entry for update Email Campaign to be send to Constant server
+            </summary>
+            <param name="emailCampaign">EmailCampaign to be updated</param>
+            <param name="authenticationData">Account Owner EmailCampaign resource</param>
+            <param name="id">Email Campaign Id for update</param>
+            <returns>Atom entry for the specified EmailCampaign</returns>
+        </member>
+        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.GetEmailCampaignCollection(System.IO.Stream)">
+            <summary>
+            Get Email Campaign collection from the Http response stream.
+            </summary>
+            <param name="stream">Response stream</param>
+            <returns>Collection of Email Campaigns</returns>
+        </member>
+        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.GetEmailCampaign(System.IO.Stream)">
+            <summary>
+            Get Email Campaign from the Http response stream.
+            </summary>
+            <param name="stream">Response stream</param>
+            <returns>Email Campaign</returns>
+        </member>
+        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.InitializeEmailCampaignStatusNames">
+            <summary>
+            Initialize Email Campaign Status Names
+            </summary>
+        </member>
+        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.CreateAtomEntry(ConstantContactBO.Entities.EmailCampaign,ConstantContactUtility.AuthenticationData,System.String)">
+            <summary>
+            Create an Atom entry used to create a new EmailCampaign
+            </summary>
+            <param name="emailCampaign">EmailCampaign to be created</param>
+            <param name="authenticationData">Account Owner EmailCampaign resource</param>
+            <param name="id">Account Owner EmailCampaign id - if its already created</param>
+            <returns>Atom entry used to create new EmailCampaign
+            </returns>
+        </member>
+        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.GetEmailCampaign(System.Xml.XPath.XPathNavigator,System.Xml.IXmlNamespaceResolver)">
+            <summary>
+            Get EmailCampaign object from specified Xml data
+            </summary>
+            <param name="node">Xml data cursor model</param>
+            <param name="resolver">Xml namespace resolver</param>
+            <returns>EmailCampaign</returns>
+        </member>
+        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.GetEmailCampaignId(System.Xml.XPath.XPathNavigator)">
+            <summary>
+            Gets the Id of EmailCampaign from Xml data
+            </summary>
+            <param name="node">Xml data cursor model</param>
+            <returns>Id of Contact List</returns>
+        </member>
+        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.GetContactListFromCampaignResponse(System.Xml.XPath.XPathNavigator)">
+            <summary>
+            Returns a contact lists from the xml data
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.GetContactListId(System.Xml.XPath.XPathNavigator)">
+            <summary>
+            Gets the Id of Contact List from Xml data
+            </summary>
+            <param name="node">Xml data cursor model</param>
+            <returns>Id of Contact List</returns>
+        </member>
+        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.GetEmailFromCampaignResponse(System.Xml.XPath.XPathNavigator)">
+            <summary>
+            Gets the Id of System Email from Xml data
+            </summary>
+            <param name="node">Xml data cursor model</param>
+            <returns>Id of System Email</returns>
         </member>
         <member name="T:ConstantContactUtility.Components.ContactComponent">
             <summary>
@@ -616,14 +923,6 @@
             <param name="node">Xml data cursor model</param>
             <returns>Id of Contact List</returns>
         </member>
-        <member name="M:ConstantContactUtility.Components.ContactComponent.GetContact(System.Xml.XPath.XPathNavigator,System.Xml.IXmlNamespaceResolver)">
-            <summary>
-            Get Contact object from specified Xml data
-            </summary>
-            <param name="node">Xml data cursor model</param>
-            <param name="resolver">Xml namespace resolver</param>
-            <returns>Contact with details</returns>
-        </member>
         <member name="M:ConstantContactUtility.Components.ContactComponent.GetContactDetail(System.Xml.XPath.XPathNavigator,System.Xml.IXmlNamespaceResolver)">
             <summary>
             Get Contact object with details from specified Xml data
@@ -750,7 +1049,6 @@
         <member name="T:ConstantContactUtility.AuthenticationData">
             <summary>
             Class used to store API Key, username and password for the Constant Contact REST API
-            
             </summary>
         </member>
         <member name="F:ConstantContactUtility.AuthenticationData.BaseUri">
@@ -865,6 +1163,16 @@
             Get the Folders URI for current customer
             </summary>
         </member>
+        <member name="F:ConstantContactUtility.AuthenticationData._accessToken">
+            <summary>
+            Access Token used for OAuth 2.0
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.AuthenticationData._authenticationVersion">
+            <summary>
+            What type of Authentication used, types supported are Basic and OAuth 2.0
+            </summary>
+        </member>
         <member name="M:ConstantContactUtility.AuthenticationData.#ctor">
             <summary>
             Default constructor
@@ -877,6 +1185,13 @@
             <param name="APIKey">API Application Key and is used to identify the application making an API request</param>
             <param name="username">Constant Contact Customer's user name</param>
             <param name="password">Constant Contact Customer's password</param>
+        </member>
+        <member name="M:ConstantContactUtility.AuthenticationData.#ctor(System.String,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="AccessToken">Access Token for the Constant Contact account</param>
+            <param name="username">Constant Contact Customer's user name</param>
         </member>
         <member name="M:ConstantContactUtility.AuthenticationData.UpdateAccountUrIs">
             <summary>
@@ -960,504 +1275,10 @@
             Get the CampaignsURI
             </summary>
         </member>
-        <member name="T:ConstantContactUtility.Components.ContactListComponent">
+        <member name="P:ConstantContactUtility.AuthenticationData.AuthenticationVersion">
             <summary>
-            Parse response Streams into Contact Lists, creates entries for creating and updating Contact Lists
-            
+            What type of Authentication are you using, supported types are Basic and OAuth 2.0
             </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.ContactListComponent.AtomNamespace">
-            <summary>
-            Atom namespace
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.ContactListComponent.ConstantNamespace">
-            <summary>
-            Constant namespace
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.ContactListComponent.ActiveSystemListId">
-            <summary>
-            Id of Active system predefined Contact List
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.ContactListComponent.RemovedSystemListId">
-            <summary>
-            Id of Removed system predefined Contact List
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.ContactListComponent.DoNotMailSystemListId">
-            <summary>
-            Id of Do-Not-Mail system predefined Contact List
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlAttributeValueNext">
-            <summary>
-            Attribute value used to retrieve the next link of chunk data
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlAttributeValueEdit">
-            <summary>
-            Attribute value used to retrieve the id of a Contact List
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlElementName">
-            <summary>
-            Xml node name of Contact List Name
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlElementShortName">
-            <summary>
-            Xml node name of Contact List Shortname
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlElementOptInDefault">
-            <summary>
-            Xml node name of Contact List OptInDefault
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlElementSortOrder">
-            <summary>
-            Xml node name of Contact List SortOrder
-            </summary>
-        </member>
-        <member name="M:ConstantContactUtility.Components.ContactListComponent.IsPredefinedSystemList(System.String)">
-            <summary>
-            Check if specified Contact List name is a Constant Contact system predefined list
-            </summary>
-            <param name="listName">Name of Contact List</param>
-            <returns>Type of system predefined list. 
-            Will return ContactSystemList.Undefined if is not a system List
-            </returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetContactListsCollection(System.IO.Stream,System.String@)">
-            <summary>
-            Get Contact List collection from the Http response stream.
-            The collection is sorted by the Sort Order and it will include the system predefined lists ("Active", "Removed", "DoNotEmail")
-            </summary>
-            <param name="stream">Response stream</param>
-            <param name="next">Link to the next chunk of data</param>
-            <returns>Collection of Contact List</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetContactListDetails(System.IO.Stream)">
-            <summary>
-            Retrieve an Individual Contact List from the Http response stream
-            </summary>
-            <param name="stream">Reponse Stream</param>
-            <returns>Contact List parsed from the reponse Stream</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.ContactListComponent.CreateNewContactList(ConstantContactBO.ContactList)">
-            <summary>
-            Get the Atom entry for newly Contact List to be send to Constant server
-            </summary>
-            <param name="list">Contact List to be created</param>
-            <returns>Atom entry used to create new Contact List</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetNextLink(System.Xml.XPath.XPathNavigator,System.Xml.IXmlNamespaceResolver)">
-            <summary>
-            Gets the link to next chunk of data
-            </summary>
-            <param name="navigator">Xml data cursor model</param>
-            <param name="resolver">Xml namespace resolver</param>
-            <returns>Link to the next chunk of data</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetLink(System.Xml.XPath.XPathNavigator,System.String,System.Xml.IXmlNamespaceResolver)">
-            <summary>
-            Gets the link with specified rel attribute value
-            </summary>
-            <param name="navigator">Xml data cursor model</param>
-            <param name="attributeValue">Value of "rel" attribute</param>
-            <param name="resolver">Xml namespace resolver</param>
-            <returns>Link to the chunk data</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetContactListLink(System.Xml.XPath.XPathNavigator,System.Xml.IXmlNamespaceResolver)">
-            <summary>
-            Gets the edit Link of Contact List from Xml data
-            </summary>
-            <param name="node">Xml data cursor model</param>
-            <param name="resolver">Xml namespace resolver</param>
-            <returns>Edit link of Contact List</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetContactListId(System.Xml.XPath.XPathNavigator)">
-            <summary>
-            Gets the Id of Contact List from Xml data
-            </summary>
-            <param name="node">Xml data cursor model</param>
-            <returns>Id of Contact List</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetContactList(System.Xml.XPath.XPathNavigator,System.Xml.IXmlNamespaceResolver)">
-            <summary>
-            Get ContactList object from specified Xml data
-            </summary>
-            <param name="node">Xml data cursor model</param>
-            <param name="resolver">Xml namespace resolver</param>
-            <returns>Contact List</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.ContactListComponent.CreateAtomEntry(ConstantContactBO.ContactList)">
-            <summary>
-            Create an Atom entry used to create a new Contact List
-            </summary>
-            <param name="list">Contact List to be created</param>
-            <returns>Atom entry used to create new Contact List
-            <example>
-                <entry xmlns="http://www.w3.org/2005/Atom">
-                    <id>data:,</id>
-                    <title/>
-                    <author/>
-                    <updated>2008-04-16</updated>
-                    <content type="application/vnd.ctct+xml">
-                        <ContactList xmlns="http://ws.constantcontact.com/ns/1.0/">
-                            <OptInDefault>false</OptInDefault>
-                            <Name>A New List</Name>
-                            <SortOrder>99</SortOrder>
-                        </ContactList>
-                    </content>
-                </entry>
-            </example>
-            </returns>
-        </member>
-        <member name="T:ConstantContactUtility.Components.EmailCampaignComponent">
-            <summary>
-            Parse response Streams into Contacts, creates entries for creating and updating Contacts
-            
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.AtomNamespace">
-            <summary>
-            Atom namespace
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.ConstantNamespace">
-            <summary>
-            Constant namespace
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlAttributeValueEdit">
-            <summary>
-            Attribute value used to edit an EmailCampaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeName">
-            <summary>
-            Name Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeStatus">
-            <summary>
-            Status Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeDate">
-            <summary>
-            Date Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeContactLists">
-            <summary>
-            ContactLists parent Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeContactList">
-            <summary>
-            ContactList Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeLastEditDate">
-            <summary>
-            LastEditDate Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeNextRunDate">
-            <summary>
-            NextRunDate Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeSent">
-            <summary>
-            Sent Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeOpens">
-            <summary>
-            Opens Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeClicks">
-            <summary>
-            Clicks Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeBounces">
-            <summary>
-            Bounces Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeForwards">
-            <summary>
-            Forwards Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeSpamReports">
-            <summary>
-            SpamReports Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeSubject">
-            <summary>
-            Subject Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeFromName">
-            <summary>
-            FromName Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeCampaignType">
-            <summary>
-            CampaignType Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeViewAsWebpage">
-            <summary>
-            ViewAsWebpage Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeViewAsWebpageLinkText">
-            <summary>
-            ViewAsWebpageLinkText Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeViewAsWebpageText">
-            <summary>
-            ViewAsWebpageText Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodePermissionReminder">
-            <summary>
-            PermissionReminder Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodePermissionReminderText">
-            <summary>
-            PermissionReminderText Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeGreetingSalutation">
-            <summary>
-            GreetingSalutation Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeGreetingString">
-            <summary>
-            GreetingString Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeOrganizationName">
-            <summary>
-            OrganizationName Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeOrganizationAddress1">
-            <summary>
-            OrganizationAddress1 Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeOrganizationAddress2">
-            <summary>
-            OrganizationAddress2 Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeOrganizationAddress3">
-            <summary>
-            OrganizationAddress3 Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeOrganizationCity">
-            <summary>
-            OrganizationCity Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeOrganizationState">
-            <summary>
-            OrganizationState Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeOrganizationInternationalState">
-            <summary>
-            OrganizationInternationalState Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeOrganizationCountry">
-            <summary>
-            OrganizationCountry Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeOrganizationPostalCode">
-            <summary>
-            OrganizationPostalCode Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeIncludeForwardEmail">
-            <summary>
-            IncludeForwardEmail Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeForwardEmailLinkText">
-            <summary>
-            ForwardEmailLinkText Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeIncludeSubscribeLink">
-            <summary>
-            IncludeSubscribeLink Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeSubscribeLinkText">
-            <summary>
-            SubscribeLinkText Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeEmailContentFormat">
-            <summary>
-            EmailContentFormat Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeEmailContent">
-            <summary>
-            EmailContent Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeEmailTextContent">
-            <summary>
-            EmailTextContent Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeOptOuts">
-            <summary>
-            OptOuts Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeGreetingName">
-            <summary>
-            GreetingName Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeFromEmail">
-            <summary>
-            FromEmail Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeReplyToEmail">
-            <summary>
-            ReplyToEmail Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeEmail">
-            <summary>
-            ReplyToEmail Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeEmailAddress">
-            <summary>
-            ReplyToEmail Node Of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.EmailCampaignXmlNodeStyleSheet">
-            <summary>
-            StyleSheet Node of Email Campaign
-            </summary>
-        </member>
-        <member name="F:ConstantContactUtility.Components.EmailCampaignComponent.emailCampaignStatusNames">
-            <summary>
-            Association between the EmailCampaignStatus enum and real EmailCampaign Status values
-            </summary>
-        </member>
-        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.#cctor">
-            <summary>
-            Class constructor
-            </summary>
-        </member>
-        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.CreateNewEmailCampaign(ConstantContactBO.Entities.EmailCampaign,ConstantContactUtility.AuthenticationData)">
-            <summary>
-            Get the Atom entry for newly Email Campaign to be send to Constant server
-            </summary>
-            <param name="emailCampaign">EmailCampaign to be created</param>
-            <param name="authenticationData">Account Owner EmailCampaign resource</param>
-            <returns>Atom entry for creating specified EmailCampaign</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.UpdateEmailCampaign(ConstantContactBO.Entities.EmailCampaign,ConstantContactUtility.AuthenticationData,System.String)">
-            <summary>
-            Get the Atom entry for update Email Campaign to be send to Constant server
-            </summary>
-            <param name="emailCampaign">EmailCampaign to be updated</param>
-            <param name="authenticationData">Account Owner EmailCampaign resource</param>
-            <param name="id">Email Campaign Id for update</param>
-            <returns>Atom entry for the specified EmailCampaign</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.GetEmailCampaignCollection(System.IO.Stream)">
-            <summary>
-            Get Email Campaign collection from the Http response stream.
-            </summary>
-            <param name="stream">Response stream</param>
-            <returns>Collection of Email Campaigns</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.GetEmailCampaign(System.IO.Stream)">
-            <summary>
-            Get Email Campaign from the Http response stream.
-            </summary>
-            <param name="stream">Response stream</param>
-            <returns>Email Campaign</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.InitializeEmailCampaignStatusNames">
-            <summary>
-            Initialize Email Campaign Status Names
-            </summary>
-        </member>
-        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.CreateAtomEntry(ConstantContactBO.Entities.EmailCampaign,ConstantContactUtility.AuthenticationData,System.String)">
-            <summary>
-            Create an Atom entry used to create a new EmailCampaign
-            </summary>
-            <param name="emailCampaign">EmailCampaign to be created</param>
-            <param name="authenticationData">Account Owner EmailCampaign resource</param>
-            <param name="id">Account Owner EmailCampaign id - if its already created</param>
-            <returns>Atom entry used to create new EmailCampaign
-            </returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.GetEmailCampaign(System.Xml.XPath.XPathNavigator,System.Xml.IXmlNamespaceResolver)">
-            <summary>
-            Get EmailCampaign object from specified Xml data
-            </summary>
-            <param name="node">Xml data cursor model</param>
-            <param name="resolver">Xml namespace resolver</param>
-            <returns>EmailCampaign</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.GetEmailCampaignId(System.Xml.XPath.XPathNavigator)">
-            <summary>
-            Gets the Id of EmailCampaign from Xml data
-            </summary>
-            <param name="node">Xml data cursor model</param>
-            <returns>Id of Contact List</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.GetContactListFromCampaignResponse(System.Xml.XPath.XPathNavigator)">
-            <summary>
-            Returns a contact lists from the xml data
-            </summary>
-            <param name="node"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.GetContactListId(System.Xml.XPath.XPathNavigator)">
-            <summary>
-            Gets the Id of Contact List from Xml data
-            </summary>
-            <param name="node">Xml data cursor model</param>
-            <returns>Id of Contact List</returns>
-        </member>
-        <member name="M:ConstantContactUtility.Components.EmailCampaignComponent.GetEmailFromCampaignResponse(System.Xml.XPath.XPathNavigator)">
-            <summary>
-            Gets the Id of System Email from Xml data
-            </summary>
-            <param name="node">Xml data cursor model</param>
-            <returns>Id of System Email</returns>
         </member>
         <member name="T:ConstantContactUtility.Utility">
             <summary>
@@ -1601,15 +1422,6 @@
             or other related with the response from server, if no Contact with specified Id exists 
             or if Contact cannot be updated (it belongs to the Do-Not-Mail list)
             or if ApiKey, Username or Password are null or empty</exception>        
-        </member>
-        <member name="M:ConstantContactUtility.Utility.PutInformation(ConstantContactUtility.AuthenticationData,System.Uri,System.String)">
-            <summary>
-            PUT the data at the specified Uri address. 
-            Constant Contact server will not send any response
-            </summary>
-            <param name="authenticationData">Authentication data (username, password and API Key)</param>
-            <param name="address">Uri address</param>
-            <param name="data">Data to be send at specified Uri address</param>        
         </member>
         <member name="M:ConstantContactUtility.Utility.UnsubscribeContact(ConstantContactUtility.AuthenticationData,System.String)">
             <summary>
@@ -1788,6 +1600,17 @@
             or other related with the response from server or if ApiKey, Username or Password are null or empty</exception>
             <returns>Updated EmailCampaign</returns>
         </member>
+        <member name="M:ConstantContactUtility.Utility.ScheduleEmailCampaign(ConstantContactUtility.AuthenticationData,ConstantContactBO.Entities.EmailCampaign)">
+            <summary>
+            Schedule an EmailCampaign
+            </summary>        
+            <param name="authenticationData">Authentication data (username, password and API Key)</param>
+            <param name="campaign">Email Campaign to be updated</param>        
+            <exception cref="T:System.ArgumentNullException">Thrown if specified EmailCampaign is null</exception>
+            <exception cref="T:ConstantContactUtility.ConstantException">Thrown if communication error with Constant server occur 
+            or other related with the response from server or if ApiKey, Username or Password are null or empty</exception>
+            <returns>Scheduled EmailCampaign</returns>
+        </member>
         <member name="M:ConstantContactUtility.Utility.PutEmailCampaignInformation(ConstantContactUtility.AuthenticationData,System.Uri,System.String)">
             <summary>
             PUT the data at the specified Uri address. 
@@ -1842,6 +1665,14 @@
             </summary>
             <param name="authdata">Authentication Data</param>
             <param name="data">CSV or text, dumped to string</param>
+            <param name="listIds">ID(s) of target lists to upload to</param>
+            <returns>Calls urlEncodedPost, which then returns response from server (string)</returns>
+        </member>
+        <member name="M:ConstantContactUtility.Utility.clearContacts(ConstantContactUtility.AuthenticationData,System.Collections.Generic.IList{System.String})">
+            <summary>
+            Removes all contacts from selected lists
+            </summary>
+            <param name="authdata">Authentication Data</param>
             <param name="listIds">ID(s) of target lists to upload to</param>
             <returns>Calls urlEncodedPost, which then returns response from server (string)</returns>
         </member>
@@ -2022,6 +1853,15 @@
             <param name="data">XML Data</param>
             <returns>string containing XML response from server</returns>
         </member>
+        <member name="M:ConstantContactUtility.Utility.httpPut(ConstantContactUtility.AuthenticationData,System.String,System.String)">
+            <summary>
+            Posts XML data to specified URI
+            </summary>
+            <param name="Authdata">Authentication Data</param>
+            <param name="URI">Target URI to POST XML data to</param>
+            <param name="data">XML Data</param>
+            <returns>string containing XML response from server</returns>
+        </member>
         <member name="T:ConstantContactUtility.ConstantException">
             <summary>
             General exception type. Could be used when communication errors
@@ -2136,6 +1976,198 @@
             <summary>
             Gets or sets the Constant Contact Account password that cannot access Constant resources
             </summary>
+        </member>
+        <member name="T:ConstantContactUtility.Utils">
+            <summary>
+            Utils class
+            </summary>
+        </member>
+        <member name="M:ConstantContactUtility.Utils.EnumToList``1">
+            <summary>
+            Converts a Enum into a List T
+            </summary>
+            <typeparam name="T">Enum</typeparam>
+            <returns>List</returns>
+        </member>
+        <member name="M:ConstantContactUtility.Utils.GreetingName">
+            <summary>
+            List of Greetings format
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ConstantContactUtility.Utils.GetAllCountries">
+            <summary>
+            List of all countries
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ConstantContactUtility.Utils.GetAllUSStates">
+            <summary>
+            List of all US States
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ConstantContactUtility.Utils.GetEmailCampaignsStatusList">
+            <summary>
+            List of Email Campaign Statuses
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ConstantContactUtility.Components.ContactListComponent">
+            <summary>
+            Parse response Streams into Contact Lists, creates entries for creating and updating Contact Lists
+            
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.ContactListComponent.AtomNamespace">
+            <summary>
+            Atom namespace
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.ContactListComponent.ConstantNamespace">
+            <summary>
+            Constant namespace
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.ContactListComponent.ActiveSystemListId">
+            <summary>
+            Id of Active system predefined Contact List
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.ContactListComponent.RemovedSystemListId">
+            <summary>
+            Id of Removed system predefined Contact List
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.ContactListComponent.DoNotMailSystemListId">
+            <summary>
+            Id of Do-Not-Mail system predefined Contact List
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlAttributeValueNext">
+            <summary>
+            Attribute value used to retrieve the next link of chunk data
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlAttributeValueEdit">
+            <summary>
+            Attribute value used to retrieve the id of a Contact List
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlElementName">
+            <summary>
+            Xml node name of Contact List Name
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlElementShortName">
+            <summary>
+            Xml node name of Contact List Shortname
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlElementOptInDefault">
+            <summary>
+            Xml node name of Contact List OptInDefault
+            </summary>
+        </member>
+        <member name="F:ConstantContactUtility.Components.ContactListComponent.ContactListXmlElementSortOrder">
+            <summary>
+            Xml node name of Contact List SortOrder
+            </summary>
+        </member>
+        <member name="M:ConstantContactUtility.Components.ContactListComponent.IsPredefinedSystemList(System.String)">
+            <summary>
+            Check if specified Contact List name is a Constant Contact system predefined list
+            </summary>
+            <param name="listName">Name of Contact List</param>
+            <returns>Type of system predefined list. 
+            Will return ContactSystemList.Undefined if is not a system List
+            </returns>
+        </member>
+        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetContactListsCollection(System.IO.Stream,System.String@)">
+            <summary>
+            Get Contact List collection from the Http response stream.
+            The collection is sorted by the Sort Order and it will include the system predefined lists ("Active", "Removed", "DoNotEmail")
+            </summary>
+            <param name="stream">Response stream</param>
+            <param name="next">Link to the next chunk of data</param>
+            <returns>Collection of Contact List</returns>
+        </member>
+        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetContactListDetails(System.IO.Stream)">
+            <summary>
+            Retrieve an Individual Contact List from the Http response stream
+            </summary>
+            <param name="stream">Reponse Stream</param>
+            <returns>Contact List parsed from the reponse Stream</returns>
+        </member>
+        <member name="M:ConstantContactUtility.Components.ContactListComponent.CreateNewContactList(ConstantContactBO.ContactList)">
+            <summary>
+            Get the Atom entry for newly Contact List to be send to Constant server
+            </summary>
+            <param name="list">Contact List to be created</param>
+            <returns>Atom entry used to create new Contact List</returns>
+        </member>
+        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetNextLink(System.Xml.XPath.XPathNavigator,System.Xml.IXmlNamespaceResolver)">
+            <summary>
+            Gets the link to next chunk of data
+            </summary>
+            <param name="navigator">Xml data cursor model</param>
+            <param name="resolver">Xml namespace resolver</param>
+            <returns>Link to the next chunk of data</returns>
+        </member>
+        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetLink(System.Xml.XPath.XPathNavigator,System.String,System.Xml.IXmlNamespaceResolver)">
+            <summary>
+            Gets the link with specified rel attribute value
+            </summary>
+            <param name="navigator">Xml data cursor model</param>
+            <param name="attributeValue">Value of "rel" attribute</param>
+            <param name="resolver">Xml namespace resolver</param>
+            <returns>Link to the chunk data</returns>
+        </member>
+        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetContactListLink(System.Xml.XPath.XPathNavigator,System.Xml.IXmlNamespaceResolver)">
+            <summary>
+            Gets the edit Link of Contact List from Xml data
+            </summary>
+            <param name="node">Xml data cursor model</param>
+            <param name="resolver">Xml namespace resolver</param>
+            <returns>Edit link of Contact List</returns>
+        </member>
+        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetContactListId(System.Xml.XPath.XPathNavigator)">
+            <summary>
+            Gets the Id of Contact List from Xml data
+            </summary>
+            <param name="node">Xml data cursor model</param>
+            <returns>Id of Contact List</returns>
+        </member>
+        <member name="M:ConstantContactUtility.Components.ContactListComponent.GetContactList(System.Xml.XPath.XPathNavigator,System.Xml.IXmlNamespaceResolver)">
+            <summary>
+            Get ContactList object from specified Xml data
+            </summary>
+            <param name="node">Xml data cursor model</param>
+            <param name="resolver">Xml namespace resolver</param>
+            <returns>Contact List</returns>
+        </member>
+        <member name="M:ConstantContactUtility.Components.ContactListComponent.CreateAtomEntry(ConstantContactBO.ContactList)">
+            <summary>
+            Create an Atom entry used to create a new Contact List
+            </summary>
+            <param name="list">Contact List to be created</param>
+            <returns>Atom entry used to create new Contact List
+            <example>
+                <entry xmlns="http://www.w3.org/2005/Atom">
+                    <id>data:,</id>
+                    <title/>
+                    <author/>
+                    <updated>2008-04-16</updated>
+                    <content type="application/vnd.ctct+xml">
+                        <ContactList xmlns="http://ws.constantcontact.com/ns/1.0/">
+                            <OptInDefault>false</OptInDefault>
+                            <Name>A New List</Name>
+                            <SortOrder>99</SortOrder>
+                        </ContactList>
+                    </content>
+                </entry>
+            </example>
+            </returns>
         </member>
     </members>
 </doc>

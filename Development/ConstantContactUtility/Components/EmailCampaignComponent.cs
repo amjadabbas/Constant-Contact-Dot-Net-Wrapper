@@ -527,6 +527,35 @@ namespace ConstantContactUtility.Components
             return data;
         }
 
+
+        public static StringBuilder ScheduleEmailXML(EmailCampaign emailCampaign, AuthenticationData authenticationData, string id)
+        {
+            //To schedule an email an hour out
+            TimeZone localZone = TimeZone.CurrentTimeZone;
+            System.DateTime now = localZone.ToUniversalTime(System.DateTime.Now);
+            System.TimeSpan duration = new System.TimeSpan(0, 1, 0, 0);
+            System.DateTime nowPlusAnHour = now.Add(duration);
+            //System.DateTime nowPlusAnHour = System.DateTime.Now.Add(duration);
+
+            StringBuilder data = new StringBuilder();
+
+            data.Append("<?xml version='1.0' encoding='UTF-8'?>");
+            data.AppendFormat("<entry xmlns=\"http://www.w3.org/2005/Atom\">");
+            data.AppendFormat("<link href=\"/ws/customers/{0}/campaigns/{1}/schedules/1\" rel=\"edit\" />", authenticationData.Username, emailCampaign.ID);
+            data.AppendFormat("<id>http://api.constantcontact.com/ws/customers/{0}/campaigns/{1}/schedules/1</id>", authenticationData.Username, emailCampaign.ID);
+            data.AppendFormat("<title type=\"text\">{0}</title>", emailCampaign.Name);
+            data.AppendFormat("<updated>{0}</updated>", DateTime.Now.ToString("o"));//yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'
+            data.AppendFormat("<author><name>{0}</name></author>", "Constant Contact");
+            data.Append("<content type=\"application/vnd.ctct+xml\">");
+            data.AppendFormat("<Schedule xmlns=\"{0}\" id=\"http://api.constantcontact.com/ws/customers/{1}/campaigns/{2}/schedules/1\" >", ConstantNamespace, authenticationData.Username, emailCampaign.ID);
+           
+            data.AppendFormat("<ScheduledTime>{0}</ScheduledTime>", nowPlusAnHour.ToString("o"));//yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'
+            //data.AppendFormat("<ScheduledTime>2013-03-13T20:03:35.000Z</ScheduledTime>");
+            data.Append("</Schedule></content></entry>");
+           
+            return data;
+        }
+
         /// <summary>
         /// Get EmailCampaign object from specified Xml data
         /// </summary>
