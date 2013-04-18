@@ -34,3 +34,9 @@ C:\Constant-Contact-Dot-Net-Wrapper\output\Release\ConstantContactUtility.pdb
 C:\Constant-Contact-Dot-Net-Wrapper\Development\ConstantContactUtility\obj\Release\ResolveAssemblyReference.cache
 C:\Constant-Contact-Dot-Net-Wrapper\Development\ConstantContactUtility\obj\Release\ConstantContactUtility.dll
 C:\Constant-Contact-Dot-Net-Wrapper\Development\ConstantContactUtility\obj\Release\ConstantContactUtility.pdb
+C:\Users\dberard\Documents\GitHub\Constant-Contact-Dot-Net-Wrapper\output\Release\ConstantContactUtility.XML
+C:\Users\dberard\Documents\GitHub\Constant-Contact-Dot-Net-Wrapper\output\Release\ConstantContactUtility.dll
+C:\Users\dberard\Documents\GitHub\Constant-Contact-Dot-Net-Wrapper\output\Release\ConstantContactUtility.pdb
+C:\Users\dberard\Documents\GitHub\Constant-Contact-Dot-Net-Wrapper\Development\ConstantContactUtility\obj\Release\ResolveAssemblyReference.cache
+C:\Users\dberard\Documents\GitHub\Constant-Contact-Dot-Net-Wrapper\Development\ConstantContactUtility\obj\Release\ConstantContactUtility.dll
+C:\Users\dberard\Documents\GitHub\Constant-Contact-Dot-Net-Wrapper\Development\ConstantContactUtility\obj\Release\ConstantContactUtility.pdb

@@ -19,3 +19,8 @@ C:\Constant-Contact-Dot-Net-Wrapper\output\Release\ConstantContactBO.pdb
 C:\Constant-Contact-Dot-Net-Wrapper\Development\ConstantContactBO\obj\Release\ResolveAssemblyReference.cache
 C:\Constant-Contact-Dot-Net-Wrapper\Development\ConstantContactBO\obj\Release\ConstantContactBO.dll
 C:\Constant-Contact-Dot-Net-Wrapper\Development\ConstantContactBO\obj\Release\ConstantContactBO.pdb
+C:\Users\dberard\Documents\GitHub\Constant-Contact-Dot-Net-Wrapper\output\Release\ConstantContactBO.dll
+C:\Users\dberard\Documents\GitHub\Constant-Contact-Dot-Net-Wrapper\output\Release\ConstantContactBO.pdb
+C:\Users\dberard\Documents\GitHub\Constant-Contact-Dot-Net-Wrapper\Development\ConstantContactBO\obj\Release\ResolveAssemblyReference.cache
+C:\Users\dberard\Documents\GitHub\Constant-Contact-Dot-Net-Wrapper\Development\ConstantContactBO\obj\Release\ConstantContactBO.dll
+C:\Users\dberard\Documents\GitHub\Constant-Contact-Dot-Net-Wrapper\Development\ConstantContactBO\obj\Release\ConstantContactBO.pdb

@@ -57,8 +57,7 @@ namespace ConstantContactUtility
             {
                 // try to access the Service Document resource
                 // it will throw a WebException if Constant Contact credentials are invalid
-
-                GetResponseStream(new Uri(authenticationData.AccountServiceDocumentUri), authenticationData);
+                httpGet(authenticationData, authenticationData.AccountServiceDocumentUri);
             }
             catch (Exception e)
             {
@@ -108,7 +107,8 @@ namespace ConstantContactUtility
             try
             {
                 // get the response stream
-                stream = GetResponseStream(new Uri(currentAddress), authenticationData);
+                String response = httpGet(authenticationData, currentAddress);
+                stream = new MemoryStream(Encoding.UTF8.GetBytes(response));
 
                 // parse the stream and get a collection of Contacts
                 return ContactComponent.GetContactCollection(stream, out nextChunkId);
@@ -183,7 +183,8 @@ namespace ConstantContactUtility
             try
             {
                 // get the response stream
-                stream = GetResponseStream(new Uri(currentAddress), authenticationData);
+                String response = httpGet(authenticationData, currentAddress);
+                stream = new MemoryStream(Encoding.UTF8.GetBytes(response));
 
                 // parse the stream and get a collection of Contacts
                 return ContactComponent.GetContactCollection(stream, out nextChunkId);
@@ -290,8 +291,8 @@ namespace ConstantContactUtility
             try
             {
                 // post the Atom entry at specified Uri and save the response stream
-                stream = PostInformation(authenticationData, new Uri(authenticationData.AccountContactsUri),
-                                         data.ToString());
+                String response = httpPost(authenticationData, authenticationData.AccountContactsUri, data.ToString(), "application/atom+xml");
+                stream = new MemoryStream(Encoding.UTF8.GetBytes(response));
 
                 // return newly created Contact
                 return ContactComponent.GetContactDetails(stream);
@@ -314,14 +315,14 @@ namespace ConstantContactUtility
         /// <param name="address">Uri address</param>
         /// <param name="data">Data to be send at specified Uri address</param>
         /// <returns>Response Stream</returns>
-        private static Stream PostInformation(AuthenticationData authenticationData, Uri address, string data)
-        {
-            // set the Http request content type
-            const string contentType = @"application/atom+xml";
+        //private static Stream PostInformation(AuthenticationData authenticationData, Uri address, string data)
+        //{
+        //    // set the Http request content type
+        //    const string contentType = @"application/atom+xml";
 
-            // send a Http POST request and return the response Stream
-            return GetResponseStream(authenticationData, address, WebRequestMethods.Http.Post, contentType, data);
-        }
+        //    // send a Http POST request and return the response Stream
+        //    return GetResponseStream(authenticationData, address, WebRequestMethods.Http.Post, contentType, data);
+        //}
         #endregion
 
         #region Contact - Update -
@@ -383,7 +384,7 @@ namespace ConstantContactUtility
             try
             {
                 // put the Atom entry at specified Uri
-                httpPut(authenticationData, completeUri, data.ToString());
+                httpPut(authenticationData, completeUri, data.ToString(), "application/atom+xml");
             }
             catch (Exception e)
             {
@@ -526,7 +527,7 @@ namespace ConstantContactUtility
             try
             {
                 // put the Atom entry at specified Uri
-                httpPut(authenticationData, completeUri, data.ToString());
+                httpPut(authenticationData, completeUri, data.ToString(), "application/atom+xml");
             }
             catch (Exception e)
             {
@@ -616,7 +617,8 @@ namespace ConstantContactUtility
             try
             {
                 // get the response stream
-                stream = GetResponseStream(new Uri(currentAddress), authenticationData);
+                String response = httpGet(authenticationData, currentAddress);
+                stream = new MemoryStream(Encoding.UTF8.GetBytes(response));
 
                 // parse the stream and get a collection of Contact Lists
                 return ContactListComponent.GetContactListsCollection(stream, out nextChunkId);
@@ -779,7 +781,7 @@ namespace ConstantContactUtility
             XMLData.Append("</entry>");
             try
             {
-                httpPost(authdata, authdata.AccountContactListsUri, XMLData.ToString());
+                httpPost(authdata, authdata.AccountContactListsUri, XMLData.ToString(), "application/atom+xml");
             }
             catch (Exception e)
             {
@@ -822,7 +824,7 @@ namespace ConstantContactUtility
             XMLData.Append("</entry>");
             try
             {
-                httpPost(authdata, authdata.AccountContactListsUri, XMLData.ToString());
+                httpPost(authdata, authdata.AccountContactListsUri, XMLData.ToString(), "application/atom+xml");
             }
             catch (Exception e)
             {
@@ -867,7 +869,7 @@ namespace ConstantContactUtility
             Uri contactUri = new Uri(authdata.ApiRootUri + list.Link);
             try
             {
-                httpPut(authdata, contactUri.ToString(), XMLData.ToString());
+                httpPut(authdata, contactUri.ToString(), XMLData.ToString(), "application/atom+xml");
 
             }
             catch (Exception e)
@@ -903,7 +905,8 @@ namespace ConstantContactUtility
             try
             {
                 // get the response stream
-                stream = GetResponseStream(new Uri(currentAddress), authenticationData);
+                String response = httpGet(authenticationData, currentAddress);
+                stream = new MemoryStream(Encoding.UTF8.GetBytes(response));
 
                 // parse the stream and get a collection of Emails
                 return EmailComponent.GetEmailCollection(stream, out nextChunkId);
@@ -958,8 +961,8 @@ namespace ConstantContactUtility
             try
             {
                 // post the Atom entry at specified Uri and save the response stream
-                stream = PostInformation(authenticationData, new Uri(authenticationData.AccountEmailCampaignsListUri),
-                                         data.ToString());
+                String response = httpPost(authenticationData, authenticationData.AccountContactsUri, data.ToString(), "application/atom+xml");
+                stream = new MemoryStream(Encoding.UTF8.GetBytes(response));
 
                 // return newly created EmailCampaign
                 //return EmailCampaignComponent.GetContactDetails(stream);
@@ -992,7 +995,8 @@ namespace ConstantContactUtility
             try
             {
                 // get the response stream
-                stream = GetResponseStream(new Uri(currentAddress), authenticationData);
+                String response = httpGet(authenticationData, currentAddress);
+                stream = new MemoryStream(Encoding.UTF8.GetBytes(response));
 
                 // parse the stream and get a collection of Contact Lists
                 return EmailCampaignComponent.GetEmailCampaignCollection(stream);
@@ -1021,7 +1025,8 @@ namespace ConstantContactUtility
             try
             {
                 // get the response stream
-                stream = GetResponseStream(new Uri(currentAddress), authenticationData);
+                String response = httpGet(authenticationData, currentAddress);
+                stream = new MemoryStream(Encoding.UTF8.GetBytes(response));
 
                 // parse the stream and get a collection of Email Campaigns
                 return EmailCampaignComponent.GetEmailCampaignCollection(stream);
@@ -1107,7 +1112,8 @@ namespace ConstantContactUtility
             try
             {
                 // get the response stream
-                stream = GetResponseStream(new Uri(currentAddress), authenticationData);
+                String response = httpGet(authenticationData, currentAddress);
+                stream = new MemoryStream(Encoding.UTF8.GetBytes(response));
 
                 // parse the stream and get an Email Campaign
                 return EmailCampaignComponent.GetEmailCampaign(stream);
@@ -1153,10 +1159,11 @@ namespace ConstantContactUtility
             try
             {
                 // Put the Atom entry at specified Uri and save the response stream
-                PutEmailCampaignInformation(authenticationData, new Uri(authenticationData.AccountEmailCampaignsListUri + "/" + campaign.ID),
-                                         data.ToString());
+                // post the Atom entry at specified Uri and save the response stream
+                String response = httpPut(authenticationData, authenticationData.AccountEmailCampaignsListUri + "/" + campaign.ID, data.ToString(), "application/atom+xml");
+                Stream stream = new MemoryStream(Encoding.UTF8.GetBytes(response));
 
-                return null;
+                return EmailCampaignComponent.GetEmailCampaign(stream);
             }
             catch (Exception e)
             {
@@ -1193,32 +1200,10 @@ namespace ConstantContactUtility
 
                 return null;
             }
-
-
-
             catch (Exception e)
             {
-                WebException ex = (WebException)e;
-
-                String errorResponse = new StreamReader(ex.Response.GetResponseStream()).ReadToEnd();
                 throw new ConstantException(e.Message, e);
             }
-        }
-
-        /// <summary>
-        /// PUT the data at the specified Uri address. 
-        /// Constant Contact server will not send any response
-        /// </summary>
-        /// <param name="authenticationData">Authentication data (username, password and API Key)</param>
-        /// <param name="address">Uri address</param>
-        /// <param name="data">Data to be send at specified Uri address</param>        
-        private static void PutEmailCampaignInformation(AuthenticationData authenticationData, Uri address, string data)
-        {
-            // set the Http request content type
-            const string contentType = @"application/atom+xml";
-
-            // send a Http PUT request and return the response Stream
-            GetResponseStream(authenticationData, address, WebRequestMethods.Http.Put, contentType, data);
         }
 
         //Schedule an email
@@ -1227,8 +1212,15 @@ namespace ConstantContactUtility
             // set the Http request content type
             const string contentType = @"application/atom+xml";
 
-            // send a Http PUT request and return the response Stream
-            GetResponseStream(authenticationData, address, WebRequestMethods.Http.Post, contentType, data);
+            // send a Http POST and catch any exceptions
+            try
+            {
+                httpPost(authenticationData, address.ToString(), data, contentType);
+            }
+            catch (Exception e)
+            {
+                throw new ConstantException(e.Message, e);
+            }
         }
         #endregion
 
@@ -1609,7 +1601,7 @@ namespace ConstantContactUtility
             XMLData.Append("</atom:entry>");
             try
             {
-                return httpPost(authdata, authdata.accountFoldersUri, XMLData.ToString());
+                return httpPost(authdata, authdata.accountFoldersUri, XMLData.ToString(), "application/atom+xml");
             }
             catch (Exception e)
             {
@@ -1830,207 +1822,6 @@ namespace ConstantContactUtility
         }
         #endregion
 
-
-        #region Common - Read response -
-        /// <summary>
-        /// Sends a Http request on specified Uri address and returns the response Stream
-        /// </summary>
-        /// <param name="authenticationData">Authentication data (username, password and API Key)</param>
-        /// <param name="address">Uri address</param>
-        /// <param name="requestMethod">Type of Http request</param>
-        /// <param name="contentType">Content type of the Http request</param>
-        /// <param name="data">Data to be send at specified Uri address</param>
-        /// <returns>Response Stream</returns>
-        private static Stream GetResponseStream(AuthenticationData authenticationData,
-            Uri address, string requestMethod, string contentType, string data)
-        {
-            // get data bytes
-            byte[] dataByte = Encoding.ASCII.GetBytes(data);
-
-            // send the request and return the response Stream
-            return GetResponseStream(authenticationData, address, requestMethod, contentType, dataByte);
-        }
-
-        /// <summary>
-        /// Sends a Http request on specified Uri address and returns the response Stream
-        /// </summary>
-        /// <param name="authenticationData">Authentication data (username, password and API Key)</param>
-        /// <param name="address">Uri address</param>
-        /// <param name="requestMethod">Type of Http request</param>
-        /// <param name="contentType">Content type of the Http request</param>
-        /// <param name="data">Data to be send at specified Uri address</param>
-        /// <returns>Response Stream</returns>
-        private static Stream GetResponseStream(AuthenticationData authenticationData,
-            Uri address, string requestMethod, string contentType, byte[] data)
-        {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(address);
-            SetCredentials(authenticationData, ref request);
-
-            request.Method = requestMethod;
-            // set the content type of the data being posted
-            request.ContentType = contentType;
-            // request MUST include a WWW-Authenticate
-            request.PreAuthenticate = true;
-
-            // set the content length of the data being posted
-            request.ContentLength = data.Length;
-
-            // write data
-            Stream stream = request.GetRequestStream();
-            stream.Write(data, 0, data.Length);
-
-            Stream responseStream = Stream.Null;
-            try
-            {
-                // get the response Stream
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-                Console.WriteLine(String.Format(CultureInfo.InvariantCulture,
-                                                "Method {0}, response description: {1}", request.Method,
-                                                response.StatusDescription));
-
-                if (response.StatusCode == HttpStatusCode.NoContent)
-                {
-                    // server don't send any response to us
-                    return Stream.Null;
-                }
-
-                // get the response Stream
-                responseStream = response.GetResponseStream();
-
-                // read the response stream and save it into a memory stream
-                MemoryStream memoryStream = ReadResponseStream(responseStream);
-
-                return memoryStream;
-            }
-            finally
-            {
-                // close the Stream object
-                stream.Close();
-
-                // close response stream; it also closes the web response
-                responseStream.Close();
-            }
-        }
-
-        /// <summary>
-        /// Converts the specified Stream into a Memory Stream
-        /// </summary>
-        /// <param name="stream">Stream to be converted</param>
-        /// <exception cref="IOException">Thrown if any of the underlying IO calls fail</exception>
-        /// <returns>Result of conversion</returns>
-        private static MemoryStream ReadResponseStream(Stream stream)
-        {
-            MemoryStream memoryStream = new MemoryStream();
-
-            // read the stream
-            byte[] responseBytes = ReadFully(stream, 0);
-
-            // write all the bytes into the memory stream
-            memoryStream.Write(responseBytes, 0, responseBytes.Length);
-
-            // set current position to 0
-            memoryStream.Position = 0;
-
-            return memoryStream;
-        }
-
-        /// <summary>
-        /// Sends a Http GET request and returns the response Stream from the specified Uri address
-        /// </summary>
-        /// <param name="address">Uri address</param>     
-        /// <param name="authenticationData">Authentication data</param>
-        /// <returns>Response Stream</returns>
-        private static Stream GetResponseStream(Uri address, AuthenticationData authenticationData)
-        {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(address);
-            SetCredentials(authenticationData, ref request);
-            request.Method = WebRequestMethods.Http.Get;
-
-            // request MUST include a WWW-Authenticate
-            request.PreAuthenticate = true;
-
-            Stream stream = Stream.Null;
-            try
-            {
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-                // get the response Stream
-                stream = response.GetResponseStream();
-
-                // read the response stream and save it into a memory stream
-                return ReadResponseStream(stream);
-            }
-            catch (WebException e)
-            {
-                if (null != e.Response)
-                {
-                    Console.Out.WriteLine("WebException Response Headers =");
-                    Console.Out.WriteLine(e.Response.Headers);
-                }
-                throw;
-            }
-            finally
-            {
-                if (stream != Stream.Null)
-                {
-                    // close response stream; it also closes the web response
-                    stream.Close();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Reads data from a stream until the end is reached. 
-        /// The data is returned as a byte array 
-        /// </summary>
-        /// <param name="stream">The stream to read data from</param>
-        /// <param name="initialLength">The initial buffer length</param>
-        /// <exception cref="IOException">Thrown if any of the underlying IO calls fail</exception>
-        /// <returns>Stream bytes</returns>
-        private static byte[] ReadFully(Stream stream, int initialLength)
-        {
-            // if we've been passed an unhelpful initial length, 
-            // just use 32K
-            if (initialLength < 1)
-            {
-                initialLength = 32768;
-            }
-
-            byte[] buffer = new byte[initialLength];
-            int read = 0;
-
-            int chunk;
-            while ((chunk = stream.Read(buffer, read, buffer.Length - read)) > 0)
-            {
-                read += chunk;
-
-                // if we've reached the end of our buffer, check to see if there's
-                // any more information
-                if (read != buffer.Length) continue;
-                int nextByte = stream.ReadByte();
-
-                // end of stream? if so, we're done
-                if (nextByte == -1)
-                {
-                    return buffer;
-                }
-
-                // resize the buffer, put in the byte we've just
-                // read, and continue
-                byte[] newBuffer = new byte[buffer.Length * 2];
-                Array.Copy(buffer, newBuffer, buffer.Length);
-                newBuffer[read] = (byte)nextByte;
-                buffer = newBuffer;
-                read++;
-            }
-
-            // buffer is now too big. shrink it
-            byte[] ret = new byte[read];
-            Array.Copy(buffer, ret, read);
-            return ret;
-        }
-        #endregion
-
         #region Common - Create network credentials -
         /// <summary>
         /// Create credentials for network transport
@@ -2221,7 +2012,7 @@ namespace ConstantContactUtility
         /// <param name="URI">Target URI to POST XML data to</param>
         /// <param name="data">XML Data</param>
         /// <returns>string containing XML response from server</returns>
-        public static string httpPost(AuthenticationData Authdata, string URI, string data)
+        public static string httpPost(AuthenticationData Authdata, string URI, string data, string contentType)
         {
             // Create a request for the URL. 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URI);
@@ -2235,7 +2026,7 @@ namespace ConstantContactUtility
             string postData = data;
             byte[] byteArray = Encoding.UTF8.GetBytes(postData);
             // Set the ContentType property of the WebRequest.
-            request.ContentType = "application/atom+xml";
+            request.ContentType = contentType;
             // Set the ContentLength property of the WebRequest.
             request.ContentLength = byteArray.Length;
             // Get the request stream.
@@ -2270,8 +2061,9 @@ namespace ConstantContactUtility
         /// <param name="Authdata">Authentication Data</param>
         /// <param name="URI">Target URI to POST XML data to</param>
         /// <param name="data">XML Data</param>
+        /// <param name="contentType">Type of content for the POST data</param>
         /// <returns>string containing XML response from server</returns>
-        public static string httpPut(AuthenticationData Authdata, string URI, string data)
+        public static string httpPut(AuthenticationData Authdata, string URI, string data, string contentType)
         {
             // Create a request for the URL. 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URI);
@@ -2286,7 +2078,7 @@ namespace ConstantContactUtility
             string postData = data;
             byte[] byteArray = Encoding.UTF8.GetBytes(postData);
             // Set the ContentType property of the WebRequest.
-            request.ContentType = "application/atom+xml";
+            request.ContentType = contentType;
             // Set the ContentLength property of the WebRequest.
             request.ContentLength = byteArray.Length;
             // Get the request stream.
