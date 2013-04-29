@@ -1,7 +1,9 @@
 # CONSTANT CONTACT - .NET Wrapper #
 
-
 1. ABOUT THIS PACKAGE
+
+This library uses the v1 Constant Contact API. We have released our v2 API and have committed development to the newest version and its libraries.
+For the newest version of the .NET wrapper, please visit this repo: https://github.com/constantcontact/.net-sdk
 
 This is a .NET wrapper which assists in the following:
 	Contact Management
